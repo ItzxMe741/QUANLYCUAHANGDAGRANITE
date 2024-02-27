@@ -1,0 +1,481 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CUAHANGBANDAGRANITE
+build_property.RootNamespace = CUAHANGBANDAGRANITE
+build_property.ProjectDir = C:\Users\darkh\OneDrive\Desktop\ĐATN\CUAHANGBANDAGRANITE\CUAHANGBANDAGRANITE\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\darkh\OneDrive\Desktop\ĐATN\CUAHANGBANDAGRANITE\CUAHANGBANDAGRANITE
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Dagranites/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFncmFuaXRlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Dagranites/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFncmFuaXRlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Dagranites/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFncmFuaXRlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Dagranites/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFncmFuaXRlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Dagranites/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFncmFuaXRlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Donvivanchuyens/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9udml2YW5jaHV5ZW5zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Donvivanchuyens/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9udml2YW5jaHV5ZW5zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Donvivanchuyens/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9udml2YW5jaHV5ZW5zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Donvivanchuyens/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9udml2YW5jaHV5ZW5zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Donvivanchuyens/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9udml2YW5jaHV5ZW5zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Hinhthucthanhtoans/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaHRodWN0aGFuaHRvYW5zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Hinhthucthanhtoans/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaHRodWN0aGFuaHRvYW5zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Hinhthucthanhtoans/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaHRodWN0aGFuaHRvYW5zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Hinhthucthanhtoans/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaHRodWN0aGFuaHRvYW5zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Hinhthucthanhtoans/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGluaHRodWN0aGFuaHRvYW5zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Khachhangs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hoYW5nc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Khachhangs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hoYW5nc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Khachhangs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hoYW5nc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Khachhangs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hoYW5nc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Khachhangs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hoYW5nc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Loaidums/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haWR1bXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Loaidums/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haWR1bXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Loaidums/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haWR1bXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Loaidums/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haWR1bXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Loaidums/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haWR1bXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Loaithungs/Baocaodoanhthu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haXRodW5nc1xCYW9jYW9kb2FuaHRodS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Loaithungs/Baocaotonkho.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haXRodW5nc1xCYW9jYW90b25raG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Loaithungs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haXRodW5nc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Loaithungs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haXRodW5nc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Loaithungs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haXRodW5nc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Loaithungs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haXRodW5nc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Loaithungs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9haXRodW5nc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nganhangs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbmhhbmdzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nganhangs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbmhhbmdzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nganhangs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbmhhbmdzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nganhangs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbmhhbmdzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nganhangs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdhbmhhbmdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nhacungcaps/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhY3VuZ2NhcHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nhacungcaps/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhY3VuZ2NhcHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nhacungcaps/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhY3VuZ2NhcHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nhacungcaps/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhY3VuZ2NhcHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nhacungcaps/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhY3VuZ2NhcHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nhanviens/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhbnZpZW5zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nhanviens/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhbnZpZW5zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nhanviens/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhbnZpZW5zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nhanviens/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhbnZpZW5zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Nhanviens/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhbnZpZW5zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieunhapkhoes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXVuaGFwa2hvZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieunhapkhoes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXVuaGFwa2hvZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieunhapkhoes/Detaildathanhtoan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXVuaGFwa2hvZXNcRGV0YWlsZGF0aGFuaHRvYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieunhapkhoes/Detailphieuthanhtoan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXVuaGFwa2hvZXNcRGV0YWlscGhpZXV0aGFuaHRvYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieunhapkhoes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXVuaGFwa2hvZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieunhapkhoes/DownPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXVuaGFwa2hvZXNcRG93blBERi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieunhapkhoes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXVuaGFwa2hvZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieunhapkhoes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXVuaGFwa2hvZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuthanhtoans/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV0aGFuaHRvYW5zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuthanhtoans/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV0aGFuaHRvYW5zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuthanhtoans/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV0aGFuaHRvYW5zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuthanhtoans/DownPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV0aGFuaHRvYW5zXERvd25QREYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuthanhtoans/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV0aGFuaHRvYW5zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuthanhtoans/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV0aGFuaHRvYW5zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuthutiens/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV0aHV0aWVuc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuthutiens/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV0aHV0aWVuc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuthutiens/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV0aHV0aWVuc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuthutiens/DownPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV0aHV0aWVuc1xEb3duUERGLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuthutiens/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV0aHV0aWVuc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuthutiens/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV0aHV0aWVuc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuxuatkhoes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV4dWF0a2hvZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuxuatkhoes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV4dWF0a2hvZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuxuatkhoes/Detaildathu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV4dWF0a2hvZXNcRGV0YWlsZGF0aHUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuxuatkhoes/Detailphieuthu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV4dWF0a2hvZXNcRGV0YWlscGhpZXV0aHUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuxuatkhoes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV4dWF0a2hvZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuxuatkhoes/DownPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV4dWF0a2hvZXNcRG93blBERi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuxuatkhoes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV4dWF0a2hvZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Phieuxuatkhoes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhpZXV4dWF0a2hvZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Quycachdonggois/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXV5Y2FjaGRvbmdnb2lzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Quycachdonggois/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXV5Y2FjaGRvbmdnb2lzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Quycachdonggois/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXV5Y2FjaGRvbmdnb2lzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Quycachdonggois/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXV5Y2FjaGRvbmdnb2lzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Quycachdonggois/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXV5Y2FjaGRvbmdnb2lzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Shared/_QuanLy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9RdWFuTHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Shared/_QuanLyPhieu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9RdWFuTHlQaGlldS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Shared/_QuanLyPhieuxuat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9RdWFuTHlQaGlldXh1YXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Taikhoans/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpa2hvYW5zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Taikhoans/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpa2hvYW5zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Taikhoans/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpa2hvYW5zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Taikhoans/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpa2hvYW5zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Taikhoans/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpa2hvYW5zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Taikhoans/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFpa2hvYW5zXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Trangthais/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbmd0aGFpc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Trangthais/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbmd0aGFpc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Trangthais/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbmd0aGFpc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Trangthais/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbmd0aGFpc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Trangthais/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbmd0aGFpc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Ungdungs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5nZHVuZ3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Ungdungs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5nZHVuZ3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Ungdungs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5nZHVuZ3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Ungdungs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5nZHVuZ3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Ungdungs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5nZHVuZ3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Xes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Xes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Xes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Xes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Xes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Xuatxus/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWHVhdHh1c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Xuatxus/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWHVhdHh1c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Xuatxus/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWHVhdHh1c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Xuatxus/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWHVhdHh1c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Xuatxus/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWHVhdHh1c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/darkh/OneDrive/Desktop/ĐATN/CUAHANGBANDAGRANITE/CUAHANGBANDAGRANITE/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-dry7k4ixi2

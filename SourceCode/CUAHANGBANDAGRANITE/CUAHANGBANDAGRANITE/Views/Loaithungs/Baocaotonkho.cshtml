@@ -1,0 +1,112 @@
+﻿@model CUAHANGBANDAGRANITE.Models.Loaithung
+@using CUAHANGBANDAGRANITE.Models;
+
+@{
+	ViewData["Title"] = "Create";
+	Layout = "~/Views/Shared/_QuanLyPhieu.cshtml";
+}
+
+@{
+	var soluongban = ViewData["soluongban"];
+	var hangton = ViewData["hangton"];
+}
+
+<div class="page-wrapper">
+	<div class="content">
+		<div class="row pt-4 pl-2">
+			<div class="col-xl-3 col-sm-6 col-12">
+				<div class="card board1 fill" style="margin-bottom: 0px;">
+					<div class="card-body">
+						<div class="dash-widget-header">
+							<div>
+								<h3 class="card_widget_header">@string.Format("{0:#,0}", hangton) thùng</h3>
+								<h6 class="text-muted">Tổng số hàng tồn</h6>
+							</div>
+							<div class="ml-auto mt-md-3 mt-lg-0">
+								<span class="opacity-7 text-muted">
+									<i class="fa fa-archive fa-lg" aria-hidden="true"></i>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-3 col-sm-6 col-12">
+				<div class="card board1 fill" style="margin-bottom: 0px;">
+					<div class="card-body">
+						<div class="dash-widget-header">
+							<div>
+								<h3 class="card_widget_header">@string.Format("{0:#,0}", soluongban) thùng</h3>
+								<h6 class="text-muted">Số lượng hàng bán ra</h6>
+							</div>
+							<div class="ml-auto mt-md-3 mt-lg-0">
+								<span class="opacity-7 text-muted">
+									<i class="fas fa-receipt fa-lg" aria-hidden="true"></i>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-invoice">
+			<div class="row mt-2">
+				<div class="col-sm-12">
+					<div class="card card-table table-invoice">
+						<div class="card-body px-3 py-3">
+							<div class="table-responsive">
+								<table class="datatable table table-stripped table table-hover table-center mb-0">
+									<thead>
+										<tr>
+											<th>Tên đá</th>
+											<th>Quy cách đóng gói</th>
+											<th>Đơn giá bán</th>
+											<th>Số lượng tồn</th>
+											<th>Trạng thái</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										@foreach (Loaithung item in ViewBag.Daactive)
+										{
+											<tr>
+												<td>@item.DagraniteiddaNavigation.Tenda</td>
+												<td>@($"{item.QuycachidquycachNavigation.Dientichbemat}m²") - @($"{item.QuycachidquycachNavigation.Khoiluong}kg") x @item.QuycachidquycachNavigation.Sovien viên</td>
+												<td class="text-right">@string.Format("{0:#,0}", @item.Dongiaban)đ</td>
+												<td class="text-right">@string.Format("{0:#,0}", @item.Sothungcon) thùng</td>
+												<td class="text-center">
+													<div class="actions">
+														<a href="#"
+														   class="btn btn-sm bg-success-light mr-2">
+															Active
+														</a>
+													</div>
+												</td>
+												
+											</tr>
+										}
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.getElementById('toggle-code-button').addEventListener('click', function () {
+		var codeContainer = document.getElementById('code-container');
+		if (codeContainer.style.display === 'block') {
+			codeContainer.style.display = 'none';
+			this.innerHTML = '<i class="fas fa-plus fa-spin"></i>';
+		} else {
+			codeContainer.style.display = 'block';
+			this.innerHTML = '<i class="fas fa-minus fa-spin"></i>';
+		}
+	});
+
+</script>

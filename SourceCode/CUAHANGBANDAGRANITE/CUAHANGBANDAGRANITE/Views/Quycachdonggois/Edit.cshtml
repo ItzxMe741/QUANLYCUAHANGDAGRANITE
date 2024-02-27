@@ -1,0 +1,329 @@
+﻿@model CUAHANGBANDAGRANITE.Models.Quycachdonggoi
+@using CUAHANGBANDAGRANITE.Models;
+
+@{
+	ViewData["Title"] = "Edit";
+	Layout = "~/Views/Shared/_QuanLyPhieu.cshtml";
+}
+
+<div class="page-wrapper">
+	<div class="content pt-4">
+		<div class="content-invoice">
+			<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+				<li class="nav-item">
+					<a class="nav-link active" href="#bottom-justified-tab1" data-toggle="tab">
+						<i class="fas fa-file-alt" style="margin-right: 5px;"></i> Sửa thông tin quy cách đóng gói
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#bottom-justified-tab2" data-toggle="tab">
+						<i class="fas fa-clipboard-list" style="margin-right: 5px;"></i> Danh sách quy cách đóng gói đã ẩn
+					</a>
+				</li>
+			</ul>
+
+			<style>
+				fieldset {
+					border: 1px solid #999999 !important;
+					margin-top: 10px;
+					position: relative;
+					border-radius: 4px;
+					background-color: #fff;
+				}
+			</style>
+
+			<div class="tab-content">
+				<div class="tab-pane show active" id="bottom-justified-tab1" style="margin-top: -5px;">
+
+					<div class="content container-fluid">
+						<div id="code-container">
+							<fieldset>
+								<div>
+									<div class="row py-1 px-3">
+										<div class="col-lg-12">
+											<form asp-action="Edit">
+												<div class="row formtype">
+													<input type="hidden" asp-for="Idquycach" />
+
+													<div class="col-md-4">
+														<div>
+															<label>Mã quy cách đóng gói</label>
+															<div>
+																<input type="text" asp-for="Maquycach" readonly
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Tên quy cách đóng gói</label>
+															<div>
+																<input type="text" asp-for="Tenquycach" id="Itenquycach" readonly
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Diện tích bề mặt</label>
+															<div>
+																<input type="text" asp-for="Dientichbemat" oninput="updateTenquycach(); validateDientichInput(this);" id="Idientich" required
+																	   style="text-align: right;" class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Khối lượng</label>
+															<div>
+																<input type="text" asp-for="Khoiluong" oninput="formatCurrency(this)"
+																	   style="text-align: right;" class="form-control currency-input">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Số viên</label>
+															<div>
+																<input type="text" asp-for="Sovien" oninput="formatCurrency(this); updateTenquycach();" id="Isovien"
+																	   style="text-align: right;" class="form-control currency-input" required>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Ghi chú</label>
+															<div>
+																<textarea type="text" asp-for="Ghichu"
+																		  rows="1" style="resize:none;" class="form-control"></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-9">
+													</div>
+													<div class="col-md-2" style="padding-left: 50px;">
+														<a asp-action="Create"
+														   style="max-width: 85px;" class="btn btn-danger btn-block mt-0 ml-5">
+															Quay về
+														</a>
+													</div>
+													<div class="col-md-1">
+														<input type="submit"
+															   style="max-width: 70px;" class="btn btn-success btn-block mt-0 search_button" value="Lưu" />
+													</div>
+												</div>
+											</form>
+										</div>
+
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+						<div class="row mt-2">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<div style="float: right; display: flex;">
+												<a class="btn btn-success" asp-action="Create"
+												   style="margin-right: 10px;margin-left: 20px;" title="Thêm">
+													<i class='fas fa-plus fa-spin'></i>
+												</a>
+											</div>
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Mã quy cách</th>
+														<th>Tên quy cách</th>
+														<th>Diện tích bề mặt</th>
+														<th>Khối lượng</th>
+														<th>Số viên</th>
+														<th>Trạng thái</th>
+														@* <th class="text-right"></th> *@
+													</tr>
+												</thead>
+												<tbody>
+
+													@foreach (Quycachdonggoi item in ViewBag.Daactive)
+													{
+														<tr>
+															<td>@item.Maquycach</td>
+															<td>@item.Tenquycach</td>
+															<td class="text-right">@string.Format("{0:#,0}", @item.Dientichbemat)m²</td>
+															<td class="text-right">@string.Format("{0:#,0}", @item.Khoiluong)kg</td>
+															<td class="text-right">@string.Format("{0:#,0}", @item.Sovien) viên</td>
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-success-light mr-2">
+																		Active
+																	</a>
+																</div>
+															</td>
+															@* <td class="text-right">
+																<a class="mr-2" title="Sửa" asp-action="Edit" asp-route-id="@item.Idquycach"
+																   style="margin-left: 30px;">
+																	<i style="color: #009688;"
+																	   class="fas fa-edit"></i>
+																</a>
+
+																<a class="mr-2" title="Chi tiết">
+																	<i style="color: #009688;"
+																	   class="fa fa-info-circle"></i>
+																</a>
+
+																<a class="mr-2" title="Ẩn" asp-action="Hidden" asp-route-id="@item.Idquycach">
+																	<i style="color: #e60000;"
+																	   class="fas fa-eye-slash"></i>
+																</a>
+															</td> *@
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="bottom-justified-tab2">
+					<div class="content container-fluid">
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Mã quy cách đóng gói</th>
+														<th>Tên quy cách đóng gói</th>
+														<th>Diện tích bề mặt</th>
+														<th>Khối lượng</th>
+														<th>Số viên</th>
+														<th>Trạng thái</th>
+														@* <th class="text-right"></th> *@
+													</tr>
+												</thead>
+												<tbody>
+													@foreach (Quycachdonggoi item in ViewBag.Dadisable)
+													{
+														<tr>
+															<td>@item.Maquycach</td>
+															<td>@item.Tenquycach</td>
+															<td class="text-right">@string.Format("{0:#,0.##}", @item.Dientichbemat)m²</td>
+															<td class="text-right">@string.Format("{0:#,0}", @item.Khoiluong)kg</td>
+															<td class="text-right">@string.Format("{0:#,0}", @item.Sovien) viên</td>
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-danger-light mr-2">
+																		Inactive
+																	</a>
+																</div>
+															</td>
+															@* <td class="text-right">
+																<a class="mr-2" title="Khôi phục" asp-action="Getback" asp-route-id="@item.Idquycach"
+																   style="margin-left: 30px;">
+																	<i style="color: #009688;"
+																	   class="fas fa-recycle"></i>
+																</a>
+															</td> *@
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	function validateDientichInput(input) {
+		var value = input.value.replace(/[^\d.]/g, '');
+		var floatValue = parseFloat(value).toFixed(2);
+		var formatted = new Intl.NumberFormat('en-US').format(floatValue);
+		input.value = formatted;
+
+	}
+</script>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		var formAmtInputs = document.querySelectorAll('.currency-input');
+		formAmtInputs.forEach(function (input) {
+			formatCurrency(input);
+		});
+	});
+</script>
+
+<script>
+	function updateTenquycach() {
+		var dientichInput = document.getElementById("Idientich");
+		var sovienInput = document.getElementById("Isovien");
+		var dientich = parseFloat(dientichInput.value.replace(/[^\d.]/g, '')); // Lấy giá trị dientich sau khi đã loại bỏ ký tự không hợp lệ
+
+		var sovien = parseFloat(sovienInput.value);
+		var dientichtoigian = dientich.toFixed(2);
+		var formatted = new Intl.NumberFormat('en-US').format(dientichtoigian);
+
+		// // Kiểm tra và giới hạn giá trị của dientich
+		// if (isNaN(dientich) || dientich < 0) {
+		// 	dientichInput.value = "1";
+		// } else if (dientich > 6) {
+		// 	dientichInput.value = "6.0";
+		// }
+
+		var tenquycach = formatted + "m² x " + sovienInput.value + " viên";
+		document.getElementById("Itenquycach").value = tenquycach;
+	}
+</script>

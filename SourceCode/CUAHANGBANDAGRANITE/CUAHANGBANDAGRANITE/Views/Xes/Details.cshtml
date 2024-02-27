@@ -1,0 +1,308 @@
+﻿@model CUAHANGBANDAGRANITE.Models.Xe
+@using CUAHANGBANDAGRANITE.Models;
+
+@{
+	ViewData["Title"] = "Details";
+	Layout = "~/Views/Shared/_QuanLyPhieu.cshtml";
+}
+
+<div class="page-wrapper">
+	<div class="content pt-4">
+		<div class="content-invoice">
+			<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+				<li class="nav-item">
+					<a class="nav-link active" href="#bottom-justified-tab1" data-toggle="tab">
+						<i class="fas fa-file-alt" style="margin-right: 5px;"></i> Thông tin xe
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#bottom-justified-tab2" data-toggle="tab">
+						<i class="fas fa-clipboard-list" style="margin-right: 5px;"></i> Danh sách xe đã ẩn
+					</a>
+				</li>
+			</ul>
+
+			<style>
+				fieldset {
+					border: 1px solid #999999 !important;
+					margin-top: 10px;
+					position: relative;
+					border-radius: 4px;
+					background-color: #fff;
+				}
+			</style>
+
+			<div class="tab-content">
+				<div class="tab-pane show active" id="bottom-justified-tab1" style="margin-top: -5px;">
+
+					<div class="content container-fluid">
+						<div id="code-container">
+							<fieldset>
+								<div>
+									<div class="row py-1 px-3">
+										<div class="col-lg-12">
+											<form asp-action="Edit">
+												<div class="row formtype">
+													<input type="hidden" asp-for="Idxe" />
+
+													<div class="col-md-4">
+														<div>
+															<label>Mã xe</label>
+															<div>
+																<input type="text" asp-for="Maxe" readonly
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Tên xe</label>
+															<div>
+																<input type="text" asp-for="Tenxe" readonly
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Đơn vị vận chuyển</label>
+															<select asp-for="Donvivanchuyeniddvvc" id="sample-select" placeholder="-- Chọn đơn vị vận chuyển --" disabled>
+																<option disabled selected value="">-- Chọn đơn vị vận chuyển --</option>
+																@if (TempData["Donvivanchuyens"] is List<Donvivanchuyen> dvvc)
+																{
+																	@foreach (var itemsl in dvvc)
+																	{
+																		<option value="@itemsl.Iddvvc">
+																			@itemsl.Madvvc - @itemsl.Tendvvc
+																		</option>
+																	}
+																}
+															</select>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Trọng tải</label>
+															<div>
+																<input type="text" asp-for="Trongtai" oninput="formatCurrency(this)" readonly
+																	   style="text-align: right;" class="form-control currency-input">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Số khối</label>
+															<div>
+																<input type="text" asp-for="Sokhoi" oninput="formatCurrency(this)" readonly
+																	   style="text-align: right;" class="form-control currency-input">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Ghi chú</label>
+															<div>
+																<textarea type="text" asp-for="Ghichu"
+																		  rows="1" style="resize:none;" class="form-control" readonly></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-9">
+													</div>
+													<div class="col-md-2" style="padding-left: 50px;">
+														<a asp-action="Create"
+														   style="max-width: 85px;" class="btn btn-danger btn-block mt-0 ml-5">
+															Quay về
+														</a>
+													</div>
+													<div class="col-md-1">
+														<a asp-action="Edit" asp-route-id="@Model.Idxe"
+															   style="max-width: 70px;" class="btn btn-success btn-block mt-0 search_button">Sửa</a>
+													</div>
+												</div>
+											</form>
+										</div>
+
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+						<div class="row mt-2">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<div style="float: right; display: flex;">
+												<a class="btn btn-success" asp-action="Create"
+												   style="margin-right: 10px;margin-left: 20px;" title="Thêm">
+													<i class='fas fa-plus fa-spin'></i>
+												</a>
+											</div>
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Mã xe</th>
+														<th>Tên xe</th>
+														<th>Đơn vị vận chuyển</th>
+														<th>Trọng tải</th>
+														<th>Số khối</th>
+														<th>Trạng thái</th>
+														@* <th class="text-right"></th> *@
+													</tr>
+												</thead>
+												<tbody>
+
+													@foreach (Xe item in ViewBag.Daactive)
+													{
+														<tr>
+															<td>@item.Maxe</td>
+															<td>@item.Tenxe</td>
+															<td>@item.DonvivanchuyeniddvvcNavigation.Tendvvc</td>
+															<td class="text-right">@string.Format("{0:#,0}", @item.Trongtai)</td>
+															<td class="text-right">@string.Format("{0:#,0}", @item.Sokhoi)</td>
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-success-light mr-2">
+																		Active
+																	</a>
+																</div>
+															</td>
+															@* <td class="text-right">
+														<a class="mr-2" title="Sửa" asp-action="Edit" asp-route-id="@item.Idxe"
+														style="margin-left: 30px;">
+														<i style="color: #009688;"
+														class="fas fa-edit"></i>
+														</a>
+
+														<a class="mr-2" title="Chi tiết">
+														<i style="color: #009688;"
+														class="fa fa-info-circle"></i>
+														</a>
+
+														<a class="mr-2" title="Ẩn" asp-action="Hidden" asp-route-id="@item.Idxe">
+														<i style="color: #e60000;"
+														class="fas fa-eye-slash"></i>
+														</a>
+														</td> *@
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="bottom-justified-tab2">
+					<div class="content container-fluid">
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Mã xe</th>
+														<th>Tên xe</th>
+														<th>Đơn vị vận chuyển</th>
+														<th>Trọng tải</th>
+														<th>Số khối</th>
+														<th>Trạng thái</th>
+														@* <th class="text-right"></th> *@
+													</tr>
+												</thead>
+												<tbody>
+													@foreach (Xe item in ViewBag.Dadisable)
+													{
+														<tr>
+															<td>@item.Maxe</td>
+															<td>@item.Tenxe</td>
+															<td>@item.DonvivanchuyeniddvvcNavigation.Tendvvc</td>
+															<td class="text-right">@string.Format("{0:#,0}", @item.Trongtai)</td>
+															<td class="text-right">@string.Format("{0:#,0}", @item.Sokhoi)</td>
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-danger-light mr-2">
+																		Inactive
+																	</a>
+																</div>
+															</td>
+															@* <td class="text-right">
+														<a class="mr-2" title="Khôi phục" asp-action="Getback" asp-route-id="@item.Idxe"
+														style="margin-left: 30px;">
+														<i style="color: #009688;"
+														class="fas fa-recycle"></i>
+														</a>
+														</td> *@
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="tab-pane" id="bottom-justified-tab3">
+					Tab content 3
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		var formAmtInputs = document.querySelectorAll('.currency-input');
+		formAmtInputs.forEach(function (input) {
+			formatCurrency(input);
+		});
+	});
+</script>

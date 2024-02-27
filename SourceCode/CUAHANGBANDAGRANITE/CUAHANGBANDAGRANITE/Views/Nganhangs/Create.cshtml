@@ -1,0 +1,266 @@
+﻿@model CUAHANGBANDAGRANITE.Models.Nganhang
+@using CUAHANGBANDAGRANITE.Models;
+
+@{
+	ViewData["Title"] = "Create";
+	Layout = "~/Views/Shared/_QuanLyPhieu.cshtml";
+}
+
+<div class="page-wrapper">
+	<div class="content pt-4">
+		<div class="content-invoice">
+
+			<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+				<li class="nav-item">
+					<a class="nav-link active" href="#bottom-justified-tab1" data-toggle="tab">
+						<i class="fas fa-file-alt" style="margin-right: 5px;"></i> Danh sách ngân hàng
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#bottom-justified-tab2" data-toggle="tab">
+						<i class="fas fa-clipboard-list" style="margin-right: 5px;"></i> Danh sách ngân hàng đã ẩn
+					</a>
+				</li>
+				<!-- <li class="nav-item"><a class="nav-link" href="#bottom-justified-tab3"
+						data-toggle="tab">Messages</a></li> -->
+			</ul>
+
+			<style>
+				fieldset {
+					border: 1px solid #999999 !important;
+					margin-top: 10px;
+					position: relative;
+					border-radius: 4px;
+					background-color: #fff;
+				}
+			</style>
+
+			<div class="tab-content">
+				<div class="tab-pane show active" id="bottom-justified-tab1" style="margin-top: -5px;">
+
+					<div class="content container-fluid">
+						<div id="code-container" style="display: none;">
+							<fieldset>
+								<div>
+									<div class="row py-1 px-3">
+										<div class="col-lg-12">
+											<form asp-action="Create">
+												<div class="row formtype">
+
+													@{
+														var idset = ViewData["idtd"];
+													}
+
+													<div class="col-md-4">
+														<div>
+															<label>Mã ngân hàng</label>
+															<div>
+																<input type="text" asp-for="Manganhang" value="@idset" readonly
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Tên ngân hàng</label>
+															<div>
+																<input type="text" asp-for="Tennganhang"
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Ghi chú</label>
+															<div>
+																<textarea type="text" asp-for="Ghichu"
+																		  rows="1" style="resize:none;" class="form-control"></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-11">
+													</div>
+													<div class="col-md-1 mt-2">
+														<input type="submit"
+															   style="max-width: 70px;" class="btn btn-success btn-block mt-0 search_button" value="Thêm" />
+													</div>
+												</div>
+											</form>
+										</div>
+
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+						<div class="row mt-2">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<div style="float: right; display: flex;">
+												<button class="btn btn-success"
+														style="margin-right: 10px;margin-left: 20px;" id="toggle-code-button" title="Hiện/Ần khung thêm">
+													<i class='fas fa-plus fa-spin'></i>
+												</button>
+											</div>
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Mã ngân hàng</th>
+														<th>Tên ngân hàng</th>
+														<th>Trạng thái</th>
+														<th class="text-right"></th>
+													</tr>
+												</thead>
+												<tbody>
+
+													@foreach (Nganhang item in ViewBag.Daactive)
+													{
+														<tr>
+															<td>@item.Manganhang</td>
+															<td>@item.Tennganhang</td>
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-success-light mr-2">
+																		Active
+																	</a>
+																</div>
+															</td>
+															<td class="text-right">
+																<a class="mr-2" title="Sửa" asp-action="Edit" asp-route-id="@item.Idnganhang"
+																   style="margin-left: 30px;">
+																	<i style="color: #009688;"
+																	   class="fas fa-edit"></i>
+																</a>
+
+																<a class="mr-2" title="Chi tiết" asp-action="Details" asp-route-id="@item.Idnganhang">
+																	<i style="color: #009688;"
+																	   class="fa fa-info-circle"></i>
+																</a>
+
+																<a class="mr-2" title="Ẩn" asp-action="Hidden" asp-route-id="@item.Idnganhang" onclick="return ConfirmDelete(this);">
+																	<i style="color: #e60000;"
+																	   class="fas fa-eye-slash"></i>
+																</a>
+															</td>
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="bottom-justified-tab2">
+					<div class="content container-fluid">
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Mã ngân hàng</th>
+														<th>Tên ngân hàng</th>
+														<th>Trạng thái</th>
+														<th class="text-right"></th>
+													</tr>
+												</thead>
+												<tbody>
+													@foreach (Nganhang item in ViewBag.Dadisable)
+													{
+														<tr>
+															<td>@item.Manganhang</td>
+															<td>@item.Tennganhang</td>
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-danger-light mr-2">
+																		Inactive
+																	</a>
+																</div>
+															</td>
+															<td class="text-right">
+																<a class="mr-2" title="Khôi phục" asp-action="Getback" asp-route-id="@item.Idnganhang" onclick="return ConfirmReturn(this);"
+																   style="margin-left: 30px;">
+																	<i style="color: #009688;"
+																	   class="fas fa-recycle"></i>
+																</a>
+															</td>
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="tab-pane" id="bottom-justified-tab3">
+					Tab content 3
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.getElementById('toggle-code-button').addEventListener('click', function () {
+		var codeContainer = document.getElementById('code-container');
+		if (codeContainer.style.display === 'block') {
+			codeContainer.style.display = 'none';
+			this.innerHTML = '<i class="fas fa-plus fa-spin"></i>';
+		} else {
+			codeContainer.style.display = 'block';
+			this.innerHTML = '<i class="fas fa-minus fa-spin"></i>';
+		}
+	});
+
+</script>

@@ -1,0 +1,377 @@
+﻿@model IEnumerable<CUAHANGBANDAGRANITE.Models.Phieuxuatkho>
+@using CUAHANGBANDAGRANITE.Models;
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_QuanLyPhieu.cshtml";
+}
+
+@{
+	var chon = TempData["Selecttab2"];
+}
+
+<div class="page-wrapper">
+	<div class="content pt-4">
+		<div class="content-invoice">
+
+			<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+				<li class="nav-item">
+					<a class="nav-link active" href="#bottom-justified-tab1" data-toggle="tab">
+						<i class="fas fa-file-alt" style="margin-right: 5px;"></i> Danh sách phiếu xuất
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#bottom-justified-tab2" data-toggle="tab">
+						<i class="fas fa-file-alt" style="margin-right: 5px;"></i>Danh sách phiếu đã thu
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#bottom-justified-tab3" data-toggle="tab">
+						<i class="fas fa-clipboard-list" style="margin-right: 5px;"></i> Danh sách phiếu đã ẩn
+					</a>
+				</li>
+			</ul>
+
+			<style>
+				fieldset {
+					border: 1px solid #999999 !important;
+					margin-top: 10px;
+					position: relative;
+					border-radius: 4px;
+					background-color: #fff;
+				}
+			</style>
+
+			<div class="tab-content">
+				<div class="tab-pane show active" id="bottom-justified-tab1" style="margin-top: -5px;">
+
+					<div class="content container-fluid">
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+						<div class="row">
+							<div class="col-lg-12">
+								<form asp-action="Index" id="fmaster1">
+									<div class="row formtype">
+										<div class="col-md-4"></div>
+										<div class="col-md-3">
+											<div>
+												<label>Từ</label>
+												<div class="cal-icon">
+													<input class="form-control datetimepicker Dateformat" placeholder="dd/mm/yyyy" name="frmdatepx"
+														   type="text" onkeydown="return isNumeric(event)" oninput="validateDateFormat(this)">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div>
+												<label>Đến</label>
+												<div class="cal-icon">
+													<input class="form-control datetimepicker Dateformat" placeholder="dd/mm/yyyy" name="todatepx"
+														   type="text" onkeydown="return isNumeric(event)" oninput="validateDateFormat(this)">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div>
+												<label></label>
+												<button type="submit"
+														class="btn btn-success btn-block mt-0 search_button">
+													Tìm kiếm
+												</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+
+						<div class="row mt-2">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<div style="float: right; display: flex;">
+												@* <input type="text" class="form-control"> *@
+
+												<a class="btn btn-success" asp-action="Create"
+												   style="margin-right: 10px;margin-left: 20px;" id="toggle-code-button" title="Tạo phiếu mới">
+													<i class='fas fa-plus fa-spin'></i>
+												</a>
+											</div>
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Số phiếu xuất</th>
+														<th>Nhân viên tiếp nhận</th>
+														<th>Khách đặt</th>
+														<th>Ngày đặt</th>
+														<th>Đơn vị vận chuyển</th>
+														<th>Trạng thái</th>
+														<th class="text-right"></th>
+													</tr>
+												</thead>
+												<tbody>
+
+													@foreach (Phieuxuatkho item in ViewBag.Phieuactive)
+													{
+														<tr>
+															<td>@item.Sopxk</td>
+															<td>@item.NhanvienidnhanvienNavigation.Tennhanvien</td>
+															<td>@item.KhachhangidkhachhangNavigation.Tenkhachhang</td>
+															<td>@Html.DisplayFor(modelItem => item.Ngaydat)</td>
+															<td>@item.DonvivanchuyeniddvvcNavigation.Tendvvc</td>
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-success-light mr-2">
+																		Active
+																	</a>
+																</div>
+															</td>
+															<td class="text-right">
+																<a class="mr-2" title="Sửa" asp-action="Edit" asp-route-id="@item.Idpxk"
+																   style="margin-left: 30px;">
+																	<i style="color: #009688;"
+																	   class="fas fa-edit"></i>
+																</a>
+																<a class="mr-2" title="Chi tiết" asp-action="Details" asp-route-id="@item.Idpxk">
+																	<i style="color: #009688;"
+																	   class="fa fa-info-circle"></i>
+																</a>
+																<a class="mr-2" title="Ẩn" asp-action="Hidden" asp-route-id="@item.Idpxk" onclick="return ConfirmDelete(this);">
+																	<i style="color: #e60000;"
+																	   class="fas fa-eye-slash"></i>
+																</a>
+															</td>
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="bottom-justified-tab2">
+					<div class="content container-fluid">
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+						<div class="row">
+							<div class="col-lg-12">
+								<form asp-action="Index" id="fmaster2">
+									<div class="row formtype">
+										<div class="col-md-4"></div>
+										<div class="col-md-3">
+											<div>
+												<label>Từ</label>
+												<div class="cal-icon">
+													<input class="form-control datetimepicker Dateformat1" placeholder="dd/mm/yyyy" name="frmdatepxdthu"
+														   type="text" onkeydown="return isNumeric(event)" oninput="validateDateFormat(this)">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div>
+												<label>Đến</label>
+												<div class="cal-icon">
+													<input class="form-control datetimepicker Dateformat1" placeholder="dd/mm/yyyy" name="todatepxdthu"
+														   type="text" onkeydown="return isNumeric(event)" oninput="validateDateFormat(this)">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div>
+												<label></label>
+												<button type="submit"
+														class="btn btn-success btn-block mt-0 search_button">
+													Tìm kiếm
+												</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+
+						<div class="row mt-2">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Số phiếu xuất</th>
+														<th>Nhân viên tiếp nhận</th>
+														<th>Khách đặt</th>
+														<th>Ngày đặt</th>
+														<th>Tổng tiền</th>
+														<th>Số tiền đã thu</th>
+														<th>Trạng thái</th>
+														<th class="text-right"></th>
+													</tr>
+												</thead>
+												<tbody>
+
+													@foreach (Phieuxuatkho item in ViewBag.Phieudathu)
+													{
+														<tr>
+															<td>@item.Sopxk</td>
+															<td>@item.NhanvienidnhanvienNavigation.Tennhanvien</td>
+															<td>@item.KhachhangidkhachhangNavigation.Tenkhachhang</td>
+															<td>@Html.DisplayFor(modelItem => item.Ngaydat)</td>
+															<td style="text-align: right;">@string.Format("{0:#,0}", @item.Tongtien)đ</td>
+															<td style="text-align: right;">@string.Format("{0:#,0}", @item.Sotiendathu)đ</td>
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-success-light mr-2">
+																		Active
+																	</a>
+																</div>
+															</td>
+															<td class="text-right">
+
+																<a class="mr-2" title="In Pdf" asp-action="DownPDF" asp-route-id="@item.Idpxk">
+																	<i style="color: #009688;"
+																	   class="fas fa-file-pdf"></i>
+																</a>
+
+																<a class="mr-2" title="Chi tiết" title="Chi tiết" asp-action="Detaildathu" asp-route-id="@item.Idpxk">
+																	<i style="color: #009688;"
+																	   class="fa fa-info-circle"></i>
+																</a>
+															</td>
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="bottom-justified-tab3">
+					<div class="content container-fluid">
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+
+						<div class="row mt-2">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Số phiếu nhập</th>
+														<th>Nhân viên tiếp nhận</th>
+														<th>Nhà cung cấp</th>
+														<th>Ngày đặt</th>
+														<th>Đơn vị vận chuyển</th>
+														<th>Trạng thái</th>
+													</tr>
+												</thead>
+												<tbody>
+
+													@foreach (Phieuxuatkho item in ViewBag.Phieuinactive)
+													{
+														<tr>
+															<td>@item.Sopxk</td>
+															<td>@item.NhanvienidnhanvienNavigation.Tennhanvien</td>
+															<td>@item.KhachhangidkhachhangNavigation.Tenkhachhang</td>
+															<td>@Html.DisplayFor(modelItem => item.Ngaydat)</td>
+															<td>@item.DonvivanchuyeniddvvcNavigation.Tendvvc</td>
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-danger-light mr-2">
+																		Inactive
+																	</a>
+																</div>
+															</td>
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		// Lấy giá trị từ TempData
+		var selectTab2 = '@chon';
+
+		// Kiểm tra nếu selectTab2 là true thì chọn tab 2
+		if (selectTab2.toLowerCase() === 'true') {
+			document.querySelector('a[href="#bottom-justified-tab2"]').click();
+		}
+	});
+</script>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CUAHANGBANDAGRANITE.Models.Xuatxu>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Maxuatxu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Xuatxu1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maxuatxu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Xuatxu1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idxuatxu">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idxuatxu">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idxuatxu">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+﻿@model CUAHANGBANDAGRANITE.Models.Trangthai
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Trangthai</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Matt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Matt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tentt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tentt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Idtt">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

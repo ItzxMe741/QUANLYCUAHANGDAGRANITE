@@ -1,0 +1,497 @@
+﻿@model CUAHANGBANDAGRANITE.Models.Dagranite;
+@using CUAHANGBANDAGRANITE.Models;
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_QuanLyPhieu.cshtml";
+}
+
+<div class="page-wrapper">
+	<div class="content pt-4">
+		<div class="content-invoice">
+
+			<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+				<li class="nav-item">
+					<a class="nav-link active" href="#bottom-justified-tab1" data-toggle="tab">
+						<i class="fas fa-file-alt" style="margin-right: 5px;"></i> Danh sách đá
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#bottom-justified-tab2" data-toggle="tab">
+						<i class="fas fa-clipboard-list" style="margin-right: 5px;"></i> Danh sách đá đã ẩn
+					</a>
+				</li>
+			</ul>
+
+			<style>
+				fieldset {
+					border: 1px solid #999999 !important;
+					margin-top: 10px;
+					position: relative;
+					border-radius: 4px;
+					background-color: #fff;
+				}
+			</style>
+
+			<div class="tab-content">
+				<div class="tab-pane show active" id="bottom-justified-tab1" style="margin-top: -5px;">
+
+					@if (TempData["AlertReturnMessage"] != null)
+					{
+
+						<script>
+							Swal.fire({
+								icon: 'success',
+								title: 'Khôi phục thành công!',
+								text: '@TempData["AlertReturnMessage"] đã khôi phục thành công',
+								showCloseButton: true,
+								confirmButtonText: 'Đóng',
+								confirmButtonClass: 'btn-success'
+							});
+						</script>
+
+					}
+
+					<div class="content container-fluid">
+						<div id="code-container" style="display: none;">
+							<fieldset>
+								<div style="display: flex;">
+									<div style="width: 160px; height: 150px;">
+										<div class="pl-2 pt-4">
+											<img class="avatar-img rounded-circle" style="object-fit:cover;"
+												 id="FrontImagePrv" src="~/img/noimage.jpg" alt="Image" width="150px" height="150px">
+										</div>
+									</div>
+									<div class="row py-1 px-3">
+										<div class="col-lg-12">
+											<form asp-action="Create" enctype="multipart/form-data">
+												<div class="row formtype">
+
+													@{
+														var idset = ViewData["idtd"];
+													}
+
+													<div class="col-md-3">
+														<div>
+															<label>Mã đá</label>
+															<div>
+																<input type="text" asp-for="Mada" value="@idset"
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div>
+															<label>Tên đá</label>
+															<div>
+																<input type="text" asp-for="Tenda"
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div>
+															<label>Tên gọi khác</label>
+															<div>
+																<input type="text" asp-for="Tengoikhac"
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-3">
+															<label>Loại đá</label>
+														<select asp-for="Loaidaidloai" id="sample-select" placeholder="-- Chọn loại đá --" required>
+															<option disabled selected value="">-- Chọn loại đá --</option>
+															@if (TempData["Loaida"] is List<Loaidum> loaida)
+															{
+																@foreach(var itemsl in loaida)
+																{
+																	<option value="@itemsl.Idloai">
+																		@itemsl.Tenloai
+																	</option>
+																}
+															}
+														</select>
+													</div>
+
+													<div class="col-md-3">
+														<div>
+															<label>Xuất xứ</label>
+															<select asp-for="Xuatxuidxuatxu" id="sample-select" placeholder="-- Chọn xuất xứ --" required>
+																<option disabled selected value="">-- Chọn xuất xứ --</option>
+																@if (TempData["Xuatxus"] is List<Xuatxu> xuatxu)
+																{
+																	@foreach (var itemsl in xuatxu)
+																	{
+																		<option value="@itemsl.Idxuatxu">
+																			@itemsl.Xuatxu1
+																		</option>
+																	}
+																}
+															</select>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div>
+															<label>Đơn vị tính</label>
+															<div>
+																<input type="text" asp-for="Dvt" value="viên" readonly
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													@* <div class="col-md-2">
+														<div>
+															<label>Khối lượng</label>
+															<div>
+																<input type="text" asp-for="Khoiluong" oninput="formatCurrency(this)" placeholder="kg"
+																	   style="text-align: right;" class="form-control">
+															</div>
+														</div>
+													</div> *@
+													<div class="col-md-3">
+														<div>
+															<label>Chiều dài</label>
+															<div>
+																<input type="text" asp-for="Chieudai" oninput="formatCurrency(this); validateChieudaiInput(this);" placeholder="cm"
+																	   style="text-align: right;" class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div>
+															<label>Chiều rộng</label>
+															<div>
+																<input type="text" asp-for="Chieurong" oninput="formatCurrency(this), validateChieurongInput(this);" placeholder="cm"
+																	   style="text-align: right;" class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div>
+															<label>Hình ảnh</label>
+															<div>
+																<input type="file" title="Chọn hình ảnh" asp-for="FrontImage"
+																	   onchange="document.getElementById('FrontImagePrv').src= window.URL.createObjectURL(this.files[0])" required
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4">
+														<div>
+															<label>Ứng dụng</label>
+															<div>
+
+																<select class="form-group" name="AUngdung" id="multi-select" placeholder="-- Chọn ứng dụng --" multiple required>
+																	<option disabled selected value="">-- Chọn ứng dụng --</option>
+																	@if (TempData["Ungdungs"] is List<Ungdung> ungdung)
+																	{
+																		@foreach (var itemsl in ungdung)
+																		{
+																			<option value="@itemsl.Idungdung">
+																				@itemsl.Tenungdung
+																			</option>
+																		}
+																	}
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-5">
+														<div>
+															<label>Ghi chú</label>
+															<div>
+																<textarea type="text" asp-for="Ghichu"
+																		  rows="1" style="resize:none;" class="form-control"></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-11">
+													</div>
+													<div class="col-md-1">
+														<input type="submit"
+															   style="max-width: 70px;" class="btn btn-success btn-block mt-0 search_button" value="Thêm" />
+													</div>
+												</div>
+											</form>
+										</div>
+
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+
+						<div class="row mt-2">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<form asp-action="Create" method="get">
+												<div style="float: right; display: flex;" class="ml-4">
+													<div style="width: 200px;">
+														<select class="sample-select-loc" id="Loctheoloai" placeholder="-- Chọn loại đá --" name="Loctheoloai">
+															<option disabled selected value="">-- Chọn loại đá --</option>
+															@if (TempData["Loaida"] is List<Loaidum> loaida1)
+															{
+																@foreach (var itemsl in loaida1)
+																{
+																	<option value="@itemsl.Idloai">
+																		@itemsl.Tenloai
+																	</option>
+																}
+															}
+														</select>
+													</div>
+													<button type="submit" id="submitButton" class="btn btn-success" style="border: none; border-radius: 0px 5px 3px 0px; padding: 5px 7px;">
+														<i class='fas fa-search'></i>
+													</button>
+
+													<button class="btn btn-success" type="button"
+															style="margin-right: 10px;margin-left: 20px;" id="toggle-code-button" title="Hiện/Ần khung thêm">
+														<i class='fas fa-plus fa-spin'></i>
+													</button>
+												</div>
+											</form>
+
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Mã đá</th>
+														<th>Tên đá</th>
+														<th>Chủng loại</th>
+														<th>Xuất xứ</th>
+														<th>Đơn vị tính</th>
+														<th>Diện tích</th>
+														<th>Trạng thái</th>
+														<th class="text-right"></th>
+													</tr>
+												</thead>
+												<tbody>
+
+													@foreach (Dagranite item in ViewBag.Daactive)
+													{
+														<tr>
+															<td>@item.Mada</td>
+															<td>
+																<h2 class="table-avatar">
+																	@if (item.Image != null)
+																	{
+																		<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="~/img/@item.Image" alt="User Image"></a>
+																	}
+																	else
+																	{
+																		<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="~/img/noimage.jpg" alt="User Image"></a>
+																	}
+
+																	<a href="#">@item.Tenda<span>@item.Tengoikhac</span></a>
+																</h2>
+															</td>
+
+															<td>@item.LoaidaidloaiNavigation.Tenloai</td>
+															<td>@item.XuatxuidxuatxuNavigation.Xuatxu1</td>
+															<td>@item.Dvt</td>
+															<td class="text-right">@string.Format("{0:#,0.##}", @item.Dientichbemat)m²</td>
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-success-light mr-2">
+																		Active
+																	</a>
+																</div>
+															</td>
+															<td class="text-right">
+																<a class="mr-2" title="Sửa" asp-action="Edit" asp-route-id="@item.Idda"
+																   style="margin-left: 30px;">
+																	<i style="color: #009688;"
+																	   class="fas fa-edit"></i>
+																</a>
+																<a class="mr-2" title="Chi tiết" asp-action="Details" asp-route-id="@item.Idda">
+																	<i style="color: #009688;"
+																	   class="fa fa-info-circle"></i>
+																</a>
+																<a class="mr-2" title="Ẩn" asp-action="Hidden" asp-route-id="@item.Idda" onclick="return ConfirmDelete(this);">
+																	<i style="color: #e60000;"
+																	   class="fas fa-eye-slash"></i>
+																</a>
+															</td>
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="bottom-justified-tab2">
+					<div class="content container-fluid">
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Mã đá</th>
+														<th>Tên đá</th>
+														<th>Chủng loại</th>
+														<th>Xuất xứ</th>
+														<th>Đơn vị tính</th>
+														<th>Diện tích</th>
+														<th>Trạng thái</th>
+														<th class="text-right"></th>
+													</tr>
+												</thead>
+												<tbody>
+													@foreach (Dagranite item in ViewBag.Dadisable)
+													{
+														<tr>
+															<td>@item.Mada</td>
+															<td>
+																<h2 class="table-avatar">
+																	@if (item.Image != null)
+																	{
+																		<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="~/img/@item.Image" alt="User Image"></a>
+																	}
+																	else
+																	{
+																		<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="~/img/noimage.jpg" alt="User Image"></a>
+																	}
+																	
+																	<a href="#">@item.Tenda<span>@item.Tengoikhac</span></a>
+																</h2>
+															</td>
+															<td>@item.LoaidaidloaiNavigation.Tenloai</td>
+															<td>@item.XuatxuidxuatxuNavigation.Xuatxu1</td>
+															<td>@item.Dvt</td>
+															<td class="text-right">@string.Format("{0:#,0.##}", @item.Dientichbemat)m²</td>
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-danger-light mr-2">
+																		Inactive
+																	</a>
+																</div>
+															</td>
+															<td class="text-right">
+																<a class="mr-2" title="Khôi phục" asp-action="Getback" asp-route-id="@item.Idda" onclick="return ConfirmReturn(this);"
+																   style="margin-left: 30px;">
+																	<i style="color: #009688;"
+																	   class="fas fa-recycle"></i>
+																</a>
+															</td>
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="tab-pane" id="bottom-justified-tab3">
+					Tab content 3
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.getElementById('toggle-code-button').addEventListener('click', function () {
+		var codeContainer = document.getElementById('code-container');
+		if (codeContainer.style.display === 'block') {
+			codeContainer.style.display = 'none';
+			this.innerHTML = '<i class="fas fa-plus fa-spin"></i>';
+		} else {
+			codeContainer.style.display = 'block';
+			this.innerHTML = '<i class="fas fa-minus fa-spin"></i>';
+		}
+	});
+
+</script>
+
+<script>
+	function validateChieurongInput(input) {
+		var value = input.value;
+		// Loại bỏ mọi ký tự không phải là số
+		value = value.replace(/[^0-9]/g, '');
+		// Chuyển đổi giá trị thành số nguyên
+		var intValue = parseInt(value, 10);
+		// Kiểm tra giới hạn từ 1 đến 15
+		if (isNaN(intValue)) {
+			intValue = 0; // Nếu không có giá trị hợp lệ (NaN), hiển thị 0
+		} else if (intValue < 1) {
+			intValue = 0;
+		} else if (intValue > 200) {
+			intValue = 200;
+		}
+		// Cập nhật giá trị trong trường input
+		input.value = intValue;
+	}
+</script>
+<script>
+	function validateChieudaiInput(input) {
+			var value = input.value;
+			// Loại bỏ mọi ký tự không phải là số
+			value = value.replace(/[^0-9]/g, '');
+			// Chuyển đổi giá trị thành số nguyên
+			var intValue = parseInt(value, 10);
+			// Kiểm tra giới hạn từ 1 đến 15
+			if (isNaN(intValue)) {
+				intValue = 0; // Nếu không có giá trị hợp lệ (NaN), hiển thị 0
+			} else if (intValue < 1) {
+				intValue = 0;
+			} else if (intValue > 300) {
+				intValue = 300;
+			}
+			// Cập nhật giá trị trong trường input
+			input.value = intValue;
+		}
+</script>
+

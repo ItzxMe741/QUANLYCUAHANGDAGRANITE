@@ -1,0 +1,338 @@
+﻿@model CUAHANGBANDAGRANITE.Models.Donvivanchuyen
+@using CUAHANGBANDAGRANITE.Models;
+
+@{
+	ViewData["Title"] = "Details";
+	Layout = "~/Views/Shared/_QuanLyPhieu.cshtml";
+}
+
+<div class="page-wrapper">
+	<div class="content pt-4">
+		<div class="content-invoice">
+			<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+				<li class="nav-item">
+					<a class="nav-link active" href="#bottom-justified-tab1" data-toggle="tab">
+						<i class="fas fa-file-alt" style="margin-right: 5px;"></i> Thông tin đơn vị vận chuyển
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#bottom-justified-tab2" data-toggle="tab">
+						<i class="fas fa-clipboard-list" style="margin-right: 5px;"></i> Danh sách đơn vị vận chuyển đã ẩn
+					</a>
+				</li>
+			</ul>
+
+			<style>
+				fieldset {
+					border: 1px solid #999999 !important;
+					margin-top: 10px;
+					position: relative;
+					border-radius: 4px;
+					background-color: #fff;
+				}
+			</style>
+
+			<div class="tab-content">
+				<div class="tab-pane show active" id="bottom-justified-tab1" style="margin-top: -5px;">
+
+					<div class="content container-fluid">
+						<div id="code-container">
+							<fieldset>
+								<div style="display: flex;">
+									<div style="width: 160px; height: 150px;">
+										<div class="pl-2 pt-4">
+											<img class="avatar-img rounded-circle" style="object-fit:cover;"
+												 id="FrontImagePrv" src="~/img/noimage.jpg" alt="Image" width="150px" height="150px">
+										</div>
+									</div>
+									<div class="row py-1 px-3">
+										<div class="col-lg-12">
+											<form asp-action="Edit" enctype="multipart/form-data" id="fmaster">
+												<div class="row formtype">
+													<input type="hidden" asp-for="Iddvvc" />
+													<div class="col-md-3">
+														<div>
+															<label>Mã đơn vị vận chuyển</label>
+															<div>
+																<input type="text" asp-for="Madvvc" readonly
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div>
+															<label>Tên đơn vị vận chuyển</label>
+															<div>
+																<input type="text" asp-for="Tendvvc" readonly
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div>
+															<label>Số điện thoại</label>
+															<div>
+																<input type="text" asp-for="Sdt" readonly
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<label>Mã số Thuế</label>
+														<div>
+															<input type="text" asp-for="Masothue" readonly
+																   class="form-control">
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div>
+															<label>Hình ảnh</label>
+															<div>
+																<input type="file" title="Upload a employee image" asp-for="FrontImage"
+																	   onchange="document.getElementById('FrontImagePrv').src= window.URL.createObjectURL(this.files[0])"
+																	   class="form-control">
+															</div>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<label>Địa chỉ</label>
+														<div>
+															<input type="text" asp-for="Diachi" readonly
+																   class="form-control">
+														</div>
+													</div>
+													<div class="col-md-3">
+														<label>Email</label>
+														<div>
+															<input type="text" asp-for="Email" readonly
+																   class="form-control">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div>
+															<label>Ghi chú</label>
+															<div>
+																<textarea asp-for="Ghichu" class="form-control" rows="1" style="resize:none;" readonly></textarea>
+															</div>
+														</div>
+													</div>
+
+													<div class="col-md-3">
+													</div>
+													<div class="col-md-3">
+
+													</div>
+													<div class="col-md-9">
+													</div>
+
+													<div class="col-md-2 pt-2" style="padding-left: 20px;">
+														<a asp-action="Create"
+														   style="max-width: 85px;" class="btn btn-danger btn-block mt-0 ml-5">
+															Quay về
+														</a>
+													</div>
+
+													<div class="col-md-1 pt-2">
+														<a asp-action="Edit" asp-route-id="@Model.Iddvvc"
+															   style="max-width: 70px;" class="btn btn-success btn-block mt-0 search_button">Sửa</a>
+													</div>
+												</div>
+											</form>
+										</div>
+
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+
+						<div class="row mt-2">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<div style="float: right; display: flex;">
+												<a class="btn btn-success" asp-action="Create"
+												   style="margin-right: 10px;margin-left: 20px;" title="Thêm">
+													<i class='fas fa-plus fa-spin'></i>
+												</a>
+											</div>
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Mã đơn vị vận chuyển</th>
+														<th>Tên đơn vị vận chuyển</th>
+														<th>Số điện thoại</th>
+														<th>Email</th>
+														<th>Trạng thái</th>
+														@* <th class="text-right"></th> *@
+													</tr>
+												</thead>
+												<tbody>
+
+													@foreach (Donvivanchuyen item in ViewBag.Daactive)
+													{
+														<tr>
+															<td>@item.Madvvc</td>
+															<td>
+																<h2 class="table-avatar">
+																	@if (item.Image != null)
+																	{
+																		<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="~/img/@item.Image" alt="User Image"></a>
+																	}
+																	else
+																	{
+																		<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="~/img/noimage.jpg" alt="User Image"></a>
+																	}
+
+																	<a href="#">@item.Tendvvc</a>
+																</h2>
+															</td>
+
+															<td>@item.Sdt</td>
+															<td>@item.Email</td>
+															@* <td class="text-right"> @string.Format("{0:#,0}", @item.Chieudai)</td>
+														<td class="text-right">@string.Format("{0:#,0}", @item.Chieurong)</td>
+														<td class="text-right">@string.Format("{0:#,0}", @item.Khoiluong)</td> *@
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-success-light mr-2">
+																		Active
+																	</a>
+																</div>
+															</td>
+															@* <td class="text-right">
+														<a class="mr-2" title="Sửa" asp-action="Edit" asp-route-id="@item.Iddvvc"
+														style="margin-left: 30px;">
+														<i style="color: #009688;"
+														class="fas fa-edit"></i>
+														</a>
+														<a class="mr-2" title="Chi tiết">
+														<i style="color: #009688;"
+														class="fa fa-info-circle"></i>
+														</a>
+														<a class="mr-2" title="Ẩn" asp-action="Hidden" asp-route-id="@item.Iddvvc">
+														<i style="color: #e60000;"
+														class="fas fa-eye-slash"></i>
+														</a>
+														</td> *@
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="bottom-justified-tab2">
+					<div class="content container-fluid">
+						<style>
+							.table-invoice,
+							.table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+
+						<style>
+							.pagination {
+								padding-top: 12px;
+							}
+
+							.dataTables_length {
+								padding-bottom: 10px;
+							}
+						</style>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-3 py-3">
+										<div class="table-responsive">
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>Mã đơn vị vận chuyển</th>
+														<th>Tên đơn vị vận chuyển</th>
+														<th>Số điện thoại</th>
+														<th>Email</th>
+														<th>Trạng thái</th>
+														@* <th class="text-right"></th> *@
+													</tr>
+												</thead>
+												<tbody>
+													@foreach (Donvivanchuyen item in ViewBag.Dadisable)
+													{
+														<tr>
+															<td>@item.Madvvc</td>
+															<td>
+																<h2 class="table-avatar">
+																	@if (item.Image != null)
+																	{
+																		<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="~/img/@item.Image" alt="User Image"></a>
+																	}
+																	else
+																	{
+																		<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="~/img/noimage.jpg" alt="User Image"></a>
+																	}
+
+																	<a href="#">@item.Tendvvc</a>
+																</h2>
+															</td>
+															<td>@item.Sdt</td>
+															<td>@item.Email</td>
+															<td class="text-center">
+																<div class="actions">
+																	<a href="#"
+																	   class="btn btn-sm bg-danger-light mr-2">
+																		Inactive
+																	</a>
+																</div>
+															</td>
+															@* <td class="text-right">
+														<a class="mr-2" title="Khôi phục" asp-action="Getback" asp-route-id="@item.Iddvvc"
+														style="margin-left: 30px;">
+														<i style="color: #009688;"
+														class="fas fa-recycle"></i>
+														</a>
+														</td> *@
+														</tr>
+													}
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

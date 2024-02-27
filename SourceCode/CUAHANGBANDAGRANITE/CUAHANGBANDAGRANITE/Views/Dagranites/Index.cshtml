@@ -1,0 +1,149 @@
+﻿@model IEnumerable<CUAHANGBANDAGRANITE.Models.Dagranite>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_QuanLy.cshtml";
+}
+
+<div class="content container-fluid">
+	<div class="page-header">
+		<div class="row align-items-center">
+			<div class="col">
+				<div class="mt-5">
+					<h4 class="card-title float-left mt-2">Appointments</h4>
+                    <a asp-action="Create" class="btn btn-primary float-right veiwbutton ">Add Booking</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="card card-table">
+				<div class="card-body booking_card">
+					<div class="table-responsive">
+						<table class="datatable table table-stripped table table-hover table-center mb-0">
+							<thead>
+								<tr>
+									<th>Mã đá</th>
+									<th>Tên đá</th>
+									<th>Đơn vị tính</th>
+									<th>Chiều dài</th>
+									<th>Chiều rộng</th>
+									<th>Khối lượng</th>
+									<th>Loại đá</th>
+									<th>Xuất xứ</th>
+								</tr>
+							</thead>
+							<tbody>
+                            @foreach (var item in Model) {
+								<tr>
+									<td>@item.Mada</td>
+									<td>
+										<h2 class="table-avatar">
+											<a href="#" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-03.jpg" alt="User Image"></a>
+											<a href="#"> @item.Tenda <span>@item.Tengoikhac</span></a>
+										</h2>
+									</td>
+									<td>@item.Dvt</td>
+									<td>@item.Chieudai</td>
+									<td>@item.Chieurong</td>
+									@* <td>@item.LoaidaidloaiNavigation.Tenloai</td>
+									<td>@item.XuatxuidxuatxuNavigation.Xuatxu1</td> *@
+									<td class="text-right">
+                                            <a href="#" class="mr-2" title="Sửa"><i style="color: #009688;" class="fas fa-edit"></i></a>
+                                            <a href="#" class="mr-2" title="Chi tiết"><i style="color: #009688;" class="fa fa-info-circle"></i></a>
+                                            <a href="#" class="mr-2" title="Ẩn"><i style="color: #e60000;" class="fa fa-eye-slash"></i></a>
+									</td>
+								</tr>
+                            }
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+@* <h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Mada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tenda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dvt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chieudai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chieurong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Khoiluong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoaidaidloaiNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.XuatxuidxuatxuNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tengoikhac)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dvt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chieudai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chieurong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Khoiluong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ghichu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaidaidloaiNavigation.Idloai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.XuatxuidxuatxuNavigation.Idxuatxu)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idda">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idda">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idda">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@

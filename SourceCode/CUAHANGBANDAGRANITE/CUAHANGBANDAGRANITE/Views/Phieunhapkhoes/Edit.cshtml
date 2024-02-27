@@ -1,0 +1,464 @@
+﻿@model CUAHANGBANDAGRANITE.Models.Phieunhapkho;
+@using CUAHANGBANDAGRANITE.Models;
+
+@{
+    ViewData["Title"] = "Edit";
+	Layout = "~/Views/Shared/_QuanLyPhieu.cshtml";
+}
+
+
+<div class="page-wrapper">
+	<div class="content pt-4">
+		<div class="content-invoice">
+
+			<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+				<li class="nav-item">
+					<a class="nav-link active" href="#bottom-justified-tab1"
+					   data-toggle="tab"> <i class="fas fa-file-alt" style="margin-right: 5px;"></i> Sửa phiếu nhập</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#bottom-justified-tab2"
+					   data-toggle="tab"> <i class="fas fa-clipboard-list" style="margin-right: 5px;"></i> Danh sách phiếu nhập</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane show active" id="bottom-justified-tab1">
+					<div class="row">
+						<div class="col-sm-12">
+							<form asp-action="Edit" id="fmaster">
+								<style>
+									fieldset {
+										border: 1px solid #999999 !important;
+										position: relative;
+										border-radius: 4px;
+										background-color: #f2f2f2;
+										padding-left: 20px !important;
+										padding-right: 20px;
+									}
+
+										fieldset .col-md-3 {
+											margin-top: -20px;
+											margin-bottom: 15px;
+										}
+								</style>
+								<fieldset class="mt-1">
+									<input type="hidden" asp-for="Idpnk"/>
+									<div class="row py-2">
+										<div class="col-md-4">
+											<div >
+												<label>Số phiếu <span style="color: red;">*</span></label>
+												<input class="form-control" asp-for="Sopnk" readonly>
+											</div>
+										</div>
+
+										<div class="col-md-4">
+											<div>
+												<label>Ngày lập</label>
+												<div class="cal-icon">
+													<input asp-for="Ngaydat" class="form-control datetimepicker Dateformat" placeholder="dd/mm/yyyy"
+														   type="text" onkeydown="return isNumeric(event)" oninput="validateDateFormat(this);">
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-4">
+											<div>
+												<label style="width:400px;">Nhân viên tiếp nhận</label>
+												<select asp-for="Nhanvienidnhanvien" id="sample-select" placeholder="-- Chọn nhân viên --" required>
+													<option disabled selected value="">-- Chọn nhân viên --</option>
+													@if (TempData["Nhanvienidnhanvien"] is List<Nhanvien> nhanvien)
+													{
+														@foreach (var itemsl in nhanvien)
+														{
+															<option value="@itemsl.Idnhanvien">
+																@itemsl.Manhanvien - @itemsl.Tennhanvien
+															</option>
+														}
+													}
+												</select>
+											</div>
+										</div>
+
+										<div class="col-md-4">
+											<div >
+												<label style="width: 400px;"> Nhà cung cấp</label>
+												<select asp-for="Nhacungcapidncc" id="sample-select" placeholder="-- Chọn nhà cung cấp --" required>
+													<option disabled selected value="">-- Chọn nhà cung cấp --</option>
+													@if (TempData["Nhacungcapidncc"] is List<Nhacungcap> ncc)
+													{
+														@foreach (var itemsl in ncc)
+														{
+															<option value="@itemsl.Idncc">
+																@itemsl.Mancc - @itemsl.Tenncc
+															</option>
+														}
+													}
+												</select>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div>
+												<label>Ghi chú</label>
+												<textarea asp-for="Ghichu" class="form-control" rows="1" style="resize:none;"></textarea>
+											</div>
+										</div>
+
+									</div>
+								</fieldset>
+								<div class="row px-1">
+									<div class="col-md-12 col-sm-12">
+										<style>
+											.detail-invoice {
+												border: 1px solid #999999 !important;
+												margin-top: 10px;
+												margin-bottom: 10px;
+												padding-top: -10px;
+												position: relative;
+												border-radius: 4px;
+												background-color: #fff;
+											}
+
+												.detail-invoice .col-md-3 {
+													margin-top: -20px;
+													margin-bottom: 15px;
+												}
+
+											.total-invoice {
+												position: relative;
+												border-radius: 4px;
+											}
+
+
+											.detail-invoice table {
+												height: 300px;
+												display: inline-block;
+												overflow: auto;
+											}
+
+											.detail-invoice .sticky-header th {
+												position: sticky;
+												top: 0;
+												z-index: 1;
+												background-color: #f9fbfd;
+											}
+										</style>
+										<div class="detail-invoice">
+											<div class="table-responsive">
+												<table id="CodesTable" class="table table-hover table-white sticky-header">
+													<thead>
+														<tr>
+															<th style="width: 20px">#</th>
+															<th class="col-sm-3">Quy cách đá</th>
+															<th class="col-sm-3">Số thùng</th>
+															<th class="col-sm-3">Đơn giá nhập</th>
+															<th class="col-sm-1">Vat(%)</th>
+															<th class="col-sm-3">Thành tiền</th>
+															<th>
+																<button id="btnAddDetailRow" type="button" onclick="AddItem(this)"
+																   class="btn btn-success visible"
+																   style="margin-bottom: -3px; padding: 5px 13px;"
+																   title="Thêm" ><i class="fas fa-plus"></i></button>
+															</th>
+														</tr>
+													</thead>
+
+													<tbody>
+														@for (int i =0; i < Model.Chitietnhaps.Count; i++)
+														{
+															<tr>
+																<td id="stt">1</td>
+																<td>
+																	<select class="selectdetail form-control" asp-for="@Model.Chitietnhaps[i].Loaithungidloaithung" id="sloaithung-@i" style="min-width:350px" onchange="enableDientichInput(this)">
+																		<option disabled selected title="-- Chọn quy cách đá --" value=""></option>
+																		@if (TempData["Loaithungidloaithung"] is List<Loaithung> lt)
+																		{
+																			@foreach (var itemsl in lt)
+																			{
+																				<option title="@($"{itemsl.QuycachidquycachNavigation.Khoiluong}kg") - @itemsl.QuycachidquycachNavigation.Tenquycach" value="@itemsl.Idloaithung">
+																					@itemsl.DagraniteiddaNavigation.Tenda
+																				</option>
+																			}
+																		}
+																	</select>
+																</td>
+																<td>
+																	<input class="form-control currency-input" asp-for="@Model.Chitietnhaps[i].Sothung" id="isothung-@i" oninput="ThanhTien(@i); formatCurrency(this);"
+																		   type="text" style="text-align: right;">
+																	<span asp-validation-for="@Model.Chitietnhaps[i].Sothung" class="text-danger"></span>
+																</td>
+																<td>
+																	<input class="form-control currency-input dongiainput" asp-for="@Model.Chitietnhaps[i].Dongianhap" id="idongia-@i" oninput=" Kiemtradongia(this); ThanhTien(@i); formatCurrency(this);"
+																		   type="text" style="text-align: right;">
+																	<span asp-validation-for="@Model.Chitietnhaps[i].Dongianhap" class="text-danger"></span>
+																</td>
+
+																<td>
+																	<input class="form-control" asp-for="@Model.Chitietnhaps[i].Vat" id="ivat-@i" oninput="TienThue(@i); validateInput(this);"
+																		   type="text" style="text-align: right;">
+																	<span asp-validation-for="@Model.Chitietnhaps[i].Dongianhap" class="text-danger"></span>
+																</td>
+																<td hidden>
+																	<input class="form-control"
+																		   type="text" style="text-align: right; min-width: 200px;" id="ivatthanhtien-@i">
+																</td>
+
+
+																<input asp-for="@Model.Chitietnhaps[i].Isdeleted" id="ixacnhan-@i" type="hidden" value="true">
+																<input asp-for="@Model.Chitietnhaps[i].Active" type="hidden" value="true">
+																<td>
+																	<input class="form-control" readonly
+																		   type="text" style="text-align: right; min-width: 200px;" id="ithanhtien-@i">
+																</td>
+																<td>
+																	<button  class="btn btn-danger visible" onclick="DeleteItem(this)" id="btnremove-@i" title="Xóa" type="button"><i class="fas fa-trash-alt"></i></button>
+																</td>
+															</tr>
+														}
+
+													</tbody>
+												</table>
+
+											</div>
+										</div>
+										<div class="total-invoice">
+											<div class="table-responsive">
+												<table class="table" style="border: none;">
+													<tbody>
+
+														<tr>
+															<td class="text-right" style="width: 100px">Tổng thuế</td>
+															<td style="text-align: right;">
+																<input class="form-control text-right form-amt" id="itongthue"
+																	   value="0" readonly="" type="text" >
+															</td>
+															<td class="text-right" style="width: 150px;">Tổng tiền hàng</td>
+
+															<td style="text-align: right;">
+																<input class="form-control text-right form-amt" id="itongtienhang"
+																	   value="0" readonly="" type="text">
+															</td>
+															<td colspan="5"
+																style="text-align: right; font-weight: bold">
+																Tổng tiền:
+															</td>
+															<td style="text-align: right; font-weight: bold; font-size: 16px">
+																<input class="form-control text-right form-amt" id="itongtien" asp-for="Tongtien"
+																	   value="0" readonly="" type="text" style="text-align: right; font-weight: bold; font-size: 16px;">
+															</td>
+															<td>
+																<button type="submit" class="btn btn-primary buttonedit" onclick="Xoadonghide();">
+																	Lưu
+																</button>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</form>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="tab-pane" id="bottom-justified-tab2">
+					<div class="content container-fluid">
+						<div class="row">
+							<div class="col-lg-12">
+								<form>
+									<div class="row formtype">
+										<div class="col-md-3">
+											<div class="form-group">
+												<label>Từ</label>
+												<div class="cal-icon">
+													<input class="form-control datetimepicker Dateformat" placeholder="dd/mm/yyyy"
+														   type="text" onkeydown="return isNumeric(event)" oninput="validateDateFormat(this)">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="form-group">
+												<label>Đến</label>
+												<div class="cal-icon">
+													<input class="form-control datetimepicker Dateformat" placeholder="dd/mm/yyyy"
+														   type="text" onkeydown="return isNumeric(event)" oninput="validateDateFormat(this)">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3">
+										</div>
+										<div class="col-md-3">
+											<div class="form-group">
+												<label></label>
+												<a href="#"
+												   class="btn btn-success btn-block mt-0 search_button">
+													Tìm kiếm
+												</a>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<style>
+							.table-invoice, .table {
+								border: 1px solid #d9d9d9 !important;
+								position: relative;
+								border-radius: 4px;
+							}
+						</style>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="card card-table table-invoice">
+									<div class="card-body px-2 py-2">
+										<div class="table-responsive">
+
+											@{
+												int sttbang = 1;
+											}
+
+											<table class="datatable table table-stripped table table-hover table-center mb-0">
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>Số phiếu nhập</th>
+														<th>Nhân viên tiếp nhận</th>
+														<th>Nhà cung cấp</th>
+														<th>Ngày đặt</th>
+														@* <th class="text-right"></th> *@
+													</tr>
+												</thead>
+												<tbody>
+													@foreach (Phieunhapkho item in ViewBag.Phieunhapkho)
+													{
+														<tr>
+															<td>
+																@sttbang
+															</td>
+															<td>@item.Sopnk</td>
+															<td>@item.NhanvienidnhanvienNavigation.Tennhanvien</td>
+															<td>@item.NhacungcapidnccNavigation.Tenncc</td>
+															<td>@Html.DisplayFor(modelItem => item.Ngaydat)</td>
+															@* <td class="text-right">
+																<a class="mr-2" title="Sửa" style="margin-left: 30px;" asp-action="Edit" asp-route-id="@item.Idpnk"><i style="color: #009688;" class="fas fa-edit"></i></a>
+																<a class="mr-2" title="Chi tiết"><i style="color: #009688;" class="fa fa-info-circle"></i></a>
+																<a class="mr-2" title="Ẩn" data-toggle="modal" data-target="#delete_asset" asp-action="Hidden" asp-route-id="@item.Idpnk"><i style="color: #e60000;" class="fas fa-eye-slash"></i></a>
+															</td> *@
+														</tr>
+														sttbang++;
+													}
+													
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="goback ml-2">
+			<a asp-action="Index" class="btn btn-success">Quay về</a>
+		</div>
+	</div>
+
+	<script>
+		function Kiemtradongia(element) {
+
+			var row = element.id.split('-')[1];
+
+			var loaithungValue = document.getElementById('sloaithung-' + row).value;
+			var dongiaValue = document.getElementById('idongia-' + row).value;
+			var sodongiaValue = dongiaValue.replace(/,/g, '');
+
+			$.ajax({
+				url: '/Phieunhapkhoes/Kiemtradongia',
+				type: 'GET',
+				dataType: 'json',
+				data: { idongia: sodongiaValue, sloaithung: loaithungValue },
+				success: function (result) {
+					if (result <= 0) {
+
+						$('#idongia-' + row).addClass('is-valid').removeClass('is-invalid');
+						$('#idongia-' + row).popover('dispose');
+						$('#idongia-' + row).popover({
+							html: true,
+							title: 'Thông báo',
+							content: 'Giá nhập hợp lệ.',
+							trigger: 'hover',
+							placement: 'bottom',
+							template: '<div class="popover" role="tooltip"><h3 class="popover-header text-success"></h3><div class="popover-body bg-success text-white"></div></div>'
+
+						});
+
+					} else {
+						$('#idongia-' + row).popover('dispose');
+						$('#idongia-' + row).addClass('is-invalid').removeClass('is-valid');
+						var formatter = new Intl.NumberFormat('en-US');
+						var formattedValue = formatter.format(result);
+						$('#idongia-' + row).popover({
+							html: true,
+							title: 'Thông báo',
+							content: 'Giá nhập bị lỗ ' + formattedValue + 'đ.',
+							trigger: 'hover',
+							placement: 'bottom',
+							template: '<div class="popover" role="tooltip"><h3 class="popover-header text-danger"></h3><div class="popover-body bg-danger text-white"></div></div>'
+
+						});
+					}
+
+				},
+				error: function () {
+					console.log('Lỗi Ajax request!');
+				}
+			});
+
+		}
+
+	</script>
+	<script>
+		function enableDientichInput(element) {
+			var row = element.id.split('-')[1];
+			var loaithungValue = document.getElementById('sloaithung-' + row).value;
+
+			if (loaithungValue !== "") {
+				$('#idongia-' + row).prop('disabled', false);
+				$('#isothung-' + row).prop('disabled', false);
+				$('#ivat-' + row).prop('disabled', false);
+			} else {
+				$('#idongia-' + row).prop('disabled', true);
+				$('#isothung-' + row).prop('disabled', true);
+				$('#ivat-' + row).prop('disabled', false);
+			}
+		}
+	</script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var rowCount = @Model.Chitietnhaps.Count;
+
+			Capnhatstt();
+
+			// Gọi hàm ThanhTien cho mỗi hàng
+			for (var i = 0; i < rowCount; i++) {
+				ThanhTien(i);
+			}
+			var formAmtInputs = document.querySelectorAll('.currency-input');
+			formAmtInputs.forEach(function (input) {
+				formatCurrency(input);
+			});
+
+			var formdongiaInputs = document.querySelectorAll('.dongiainput');
+			formdongiaInputs.forEach(function (input) {
+				Kiemtradongia(input);
+			});
+		});
+	</script>
+</div>
+

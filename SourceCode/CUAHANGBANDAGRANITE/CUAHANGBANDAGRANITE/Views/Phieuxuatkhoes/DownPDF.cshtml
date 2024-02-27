@@ -1,0 +1,300 @@
+﻿@model CUAHANGBANDAGRANITE.Models.Phieuxuatkho
+@using CUAHANGBANDAGRANITE.Models;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DownPDF</title>
+    <style>
+        .container {
+           width: 900px !important;
+           height:842px !important;
+           margin:auto;
+        }
+        body{
+           font-family: 'Segoe UI', Tahoma, Verdana, sans-serif
+        }
+        p.title{
+           font-weight:bold;
+           font-size: 17px;
+        }
+         p.title2{
+           font-weight:bold;
+           font-size:20px;
+        }
+        p.text{
+           font-size:15px;
+           font-weight:400;
+           color:#404040;
+        }
+        p{
+           margin:0px;
+        }
+        .tbth{
+           text-align:center;
+           border: 1.5px solid;
+           background-color:  #d9d9d9;
+        }
+
+        table.tbproduct{
+            border-collapse: collapse;
+        }
+
+        table.tbproduct tbody .title-tb{
+            border: 1.5px solid !important;
+        }
+
+        table.tbproduct thead tr th {
+           padding:10px;
+           font-size:15px;
+        }
+        table.tbproduct tbody tr td{
+           padding:10px;
+        }
+        .item{
+           font-size:15px;
+           font-weight:200;
+        }
+        .item-2{
+        font-size:15px;
+           font-weight:bold;
+        }
+
+        .item-3{
+           font-size:15px;
+        }
+        
+        .small-text {
+            font-size: 14px;
+            color: #404040;
+            margin-top: 5px;
+        }
+
+        .title-tb td,
+        .title-tb th {
+            border: 1.5px solid;
+        }
+
+         .info-row {
+            margin: 12px 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .label {
+            font-weight: bold;
+            margin-right: 5px;
+            width: auto;
+            display: inline-block;
+        }
+        .info {
+            flex: 1;
+        }
+
+        .signature {
+            position: relative;
+            text-align: center;
+        }
+
+        .signature-text {
+            bottom: 0;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <table style="width:100%">
+        </table>
+        <br />
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <p class="title">Cửa hàng đá Granite Natural</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="text">Địa chỉ: 236 Lê Văn Sỹ, Phường 1, Tân Bình, TP.HCM</p></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="text">Email: naturalgranite@gmail.com</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="text">Sđt: 0985256512</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="text-align:right">
+                    <table style="margin-right:0;margin-left:auto">
+                        <tr>
+                            <td><p class="title">Số phiếu: <span style="font-size:15px;font-weight:400; color: #404040;font-size:15px; font-weight:400; color: #404040;">@Model.Sopxk</span></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="text">Ngày: <span id="current-time"></span> </p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="text" style="height: 20px;"></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="text" style="height: 20px;"> </p></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <p style="padding: 0 337px; margin: 10px 0; font-weight: 700; font-size: 1.65rem;">PHIẾU XUẤT KHO</p>
+        <div class="info-row" style="margin-top: 40px;">
+            <span class="label">Tên khách hàng:</span>
+            <span class="info">@Model.KhachhangidkhachhangNavigation.Tenkhachhang</span>
+
+            <span class="label" style="margin-left: 30px;">Số điện thoại:</span>
+            <span class="info">@Model.KhachhangidkhachhangNavigation.Sdt</span>
+          
+            <span class="label" style="margin-left: 30px;">Email</span>
+            <span class="info">@Model.KhachhangidkhachhangNavigation.Email</span>
+
+        </div>
+        <div class="info-row">
+
+            <span class="label" >Mã số thuế:</span>
+            <span class="info">@Model.KhachhangidkhachhangNavigation.Masothue</span>
+
+            <span class="label" style="margin-left: 35px;">Địa chỉ:</span>
+            <span class="info">@Model.KhachhangidkhachhangNavigation.Diachi</span>
+        </div>
+
+        <div class="info-row" style="margin-bottom: 20px;">
+            <span class="label">Ngày đặt:</span>
+            <span class="info">@Html.DisplayFor(modelItem => Model.Ngaydat)</span>
+            <span class="label" style="margin-left: 35px;">Nhân viên tiếp nhận:</span>
+            <span class="info">@Model.NhanvienidnhanvienNavigation.Tennhanvien</span>
+            @if (Model.Ghichu != null)
+            {
+                <span class="label" style="margin-left: 35px;">Ghi chú:</span>
+                <span class="info">@Model.Ghichu</span>
+            }
+        </div>
+        
+        
+
+        <table class="tbproduct" style="width:100%">
+            <thead>
+                <tr>
+                    <th class="tbth" style="width:30px">STT</th>
+                    <th class="tbth">Quy cách đá</th>
+                    <th class="tbth" style="width:70px">Diện tích đặt</th>
+                    <th class="tbth" style="width:60px">Số thùng giao</th>
+                    <th class="tbth" style="width:130px">Đơn giá</th>
+                    <th class="tbth" style="width:30px">VAT(%)</th>
+                    <th class="tbth" style="width:130px">Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int stt = 1;
+                    double tongthue = 0;
+                    double tongtienhang = 0;
+                    double tongtien = 0;
+                }
+
+                @foreach (Chitietxuat item in ViewBag.Chitietxuat)
+                {
+                    double thanhtien = 0;
+                    thanhtien = Convert.ToDouble(item.Sothunggiaokh) * Convert.ToDouble(item.Dongiaxuat);
+                    tongtien = Convert.ToDouble(item.PhieuxuatkhoidpxkNavigation.Tongtien);
+                    tongthue += (thanhtien * Convert.ToDouble(item.Vat)) / 100;
+                    tongtienhang += thanhtien;
+                    <tr class="title-tb">
+                        <td style="text-align: center;">@stt</td>
+                        <td class="td-item">
+                            <p class="item">@item.LoaithungidloaithungNavigation.DagraniteiddaNavigation.Tenda</p>
+                            <p class="small-text">Thông tin thùng: @string.Format("{0:#,0.##}", item.LoaithungidloaithungNavigation.QuycachidquycachNavigation.Khoiluong)kg - @string.Format("{0:#,0.##}", item.LoaithungidloaithungNavigation.QuycachidquycachNavigation.Dientichbemat)m² x @string.Format("{0:#,0.##}", item.LoaithungidloaithungNavigation.QuycachidquycachNavigation.Sovien) viên</p>
+                        </td>
+                        <td class="td-item" style="text-align: right;"><p class="item">@string.Format("{0:#,0}", item.Dientichkhdat)m²</p></td>
+                        <td class="td-item" style="text-align: right;"><p class="item">@string.Format("{0:#,0}", item.Sothunggiaokh)</p></td>
+                        <td class="td-item" style="text-align: right;"><p class="item">@string.Format("{0:#,0}", item.Dongiaxuat)đ</p></td>
+                        <td class="td-item" style="text-align: center;"><p class="item">@item.Vat</p></td>
+                        <td style="background-color: #f2f2f2; text-align: right;"><p class="item">@string.Format("{0:#,0}", thanhtien)đ</p></td>
+                    </tr>
+                    stt++;
+                }
+            </tbody>
+        </table>
+
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <table>
+                    </table>
+                </td>
+                <td>
+                    <table style="margin-left:65%; margin-top: 15px;">
+                        <tr>
+                            <td><p class="item-2">Tổng thuế:</p></td>
+                            <td style="text-align: right;"><p style="margin-left: 30px;">@string.Format("{0:#,0}", tongthue)đ</p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="item-2">Tổng tiền hàng:</p></td>
+                            <td style="text-align: right;"><p style="margin-left: 30px;">@string.Format("{0:#,0}", tongtienhang)đ</p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="item-2">Tổng:</p></td>
+                            <td style="text-align: right;"><p style="margin-left: 30px;">@string.Format("{0:#,0}", tongtien)đ</p></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <div class="signature-row" style="margin-top: 30px; margin-bottom: 200px;">
+                        <div class="signature">
+                            <span class="label">Khách hàng</span>
+                            <p class="signature-text">(Ký, ghi rõ họ tên)</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="signature-row" style="margin-top: 30px; margin-bottom: 200px;">
+                        <div class="signature">
+                            <span class="label">Người lập phiếu</span>
+                            <p class="signature-text">(Ký, ghi rõ họ tên)</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script>
+        var curDate = new Date();
+          
+        var curDay = curDate.getDate();
+        var curMonth = curDate.getMonth() + 1;
+        var curYear = curDate.getFullYear();
+        document.getElementById('current-time').innerHTML = curDay + "/" + curMonth + "/" + curYear;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,661 @@
+﻿@{
+	QlchdgraniteContext _context = new QlchdgraniteContext();
+	Taikhoan acc = _context.Taikhoans.Find(Int32.Parse(User.Identity.Name));
+	Nhanvien nv = _context.Nhanviens.Where(x => x.Taikhoanidtaikhoan == acc.Idtaikhoan).FirstOrDefault();
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>Cửa hàng đá Granite Natural</title>
+
+	<link rel="shortcut icon" type="image/x-icon" href="~/img/hotel_logo.png">
+
+	<link rel="stylesheet" href="~/css/bootstrap.min.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+
+	<link rel="stylesheet" href="~/plugins/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="~/plugins/fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="~/css/select2.min.css">
+	<link rel="stylesheet" href="~/css/feathericon.min.css">
+    <link href="~/css/selectsearch.css" rel="stylesheet" />
+	<link rel="stylesheet" href="~/plugins/datatables/datatables.min.css">
+	<link rel="stylesheet" href="~/plugins/morris/morris.css">
+	<link rel="stylesheet" type="text/css" href="~/css/bootstrap-datetimepicker.min.css">
+    <link href="~/css/virtual-select.min.css" rel="stylesheet" />
+    <link href="~/css/tooltip.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="~/css/style.css">
+
+</head>
+
+<body>
+
+	<div class="main-wrapper">
+
+		<div class="header">
+			<div class="header-left">
+				<a asp-area="" asp-controller="Home" asp-action="Index" class="logo"> <img src="~/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">Natural</span> </a>
+				<a asp-area="" asp-controller="Home" asp-action="Index" class="logo logo-small"> <img src="~/img/hotel_logo.png" alt="Logo" width="30" height="30"> </a>
+			</div>
+			<a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
+			<a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>
+			<ul class="nav user-menu">
+				@* <li class="nav-item dropdown noti-dropdown">
+				<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <i class="fe fe-bell"></i> <span class="badge badge-pill">3</span> </a>
+				<div class="dropdown-menu notifications">
+				<div class="topnav-dropdown-header"> <span class="notification-title">Notifications</span> <a href="javascript:void(0)" class="clear-noti"> Clear All </a> </div>
+				<div class="noti-content">
+				<ul class="notification-list">
+				<li class="notification-message">
+				<a href="#">
+				<div class="media">
+				<span class="avatar avatar-sm">
+				<img class="avatar-img rounded-circle" alt="User Image" src="~/img/profiles/avatar-02.jpg">
+				</span>
+				<div class="media-body">
+				<p class="noti-details"><span class="noti-title">Carlson Tech</span> has approved <span class="noti-title">your estimate</span></p>
+				<p class="noti-time"><span class="notification-time">4 mins ago</span> </p>
+				</div>
+				</div>
+				</a>
+				</li>
+				<li class="notification-message">
+				<a href="#">
+				<div class="media">
+				<span class="avatar avatar-sm">
+				<img class="avatar-img rounded-circle" alt="User Image" src="~/img/profiles/avatar-11.jpg">
+				</span>
+				<div class="media-body">
+				<p class="noti-details">
+				<span class="noti-title">
+				International Software
+				Inc
+				</span> has sent you a invoice in the amount of <span class="noti-title">$218</span>
+				</p>
+				<p class="noti-time"><span class="notification-time">6 mins ago</span> </p>
+				</div>
+				</div>
+				</a>
+				</li>
+				<li class="notification-message">
+				<a href="#">
+				<div class="media">
+				<span class="avatar avatar-sm">
+				<img class="avatar-img rounded-circle" alt="User Image" src="~/img/profiles/avatar-17.jpg">
+				</span>
+				<div class="media-body">
+				<p class="noti-details">
+				<span class="noti-title">John Hendry</span> sent a cancellation request <span class="noti-title">
+				Apple iPhone
+				XR
+				</span>
+				</p>
+				<p class="noti-time"><span class="notification-time">8 mins ago</span> </p>
+				</div>
+				</div>
+				</a>
+				</li>
+				<li class="notification-message">
+				<a href="#">
+				<div class="media">
+				<span class="avatar avatar-sm">
+				<img class="avatar-img rounded-circle" alt="User Image" src="~/img/profiles/avatar-13.jpg">
+				</span>
+				<div class="media-body">
+				<p class="noti-details">
+				<span class="noti-title">
+				Mercury Software
+				Inc
+				</span> added a new product <span class="noti-title">
+				Apple
+				MacBook Pro
+				</span>
+				</p>
+				<p class="noti-time"><span class="notification-time">12 mins ago</span> </p>
+				</div>
+				</div>
+				</a>
+				</li>
+				</ul>
+				</div>
+				<div class="topnav-dropdown-footer"> <a href="#">View all Notifications</a> </div>
+				</div>
+				</li> *@
+				@if (nv != null)
+				{
+					<li class="nav-item dropdown has-arrow">
+						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <span class="user-img"><img class="rounded-circle" src="~/img/@nv.Image" width="31" alt="Hình ảnh"></span> </a>
+						<div class="dropdown-menu">
+							<div class="user-header">
+								<div class="avatar avatar-sm"> <img src="~/img/@nv.Image" alt="Hình ảnh" class="avatar-img rounded-circle"> </div>
+								<div class="user-text">
+									<h6>@nv.Tennhanvien</h6>
+									@if (acc.Vaitro == "1")
+									{
+										<p class="text-muted mb-0">Nhân viên</p>
+									}
+									else
+									{
+										<p class="text-muted mb-0">Quản lý</p>
+									}
+								</div>
+							</div> @* <a class="dropdown-item" href="profile.html">My Profile</a> <a class="dropdown-item" href="settings.html">Account Settings</a> *@ <a class="dropdown-item" asp-controller="Taikhoans" asp-action="Logout">Đăng xuất</a>
+						</div>
+					</li>
+				}
+				else
+				{
+					<li class="nav-item dropdown has-arrow">
+						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <span class="user-img"><img class="rounded-circle" src="~/img/noimage.jpg" width="31" alt="Hình ảnh"></span> </a>
+						<div class="dropdown-menu">
+							<div class="user-header">
+								<div class="avatar avatar-sm"> <img src="~/img/noimage.jpg" alt="Hình ảnh" class="avatar-img rounded-circle"> </div>
+								<div class="user-text">
+									<h6>@acc.Tendangnhap</h6>
+									@if (acc.Vaitro == "1")
+									{
+										<p class="text-muted mb-0">Nhân viên</p>
+									}
+									else
+									{
+										<p class="text-muted mb-0">Quản lý</p>
+									}
+								</div>
+							</div> @* <a class="dropdown-item" href="profile.html">My Profile</a> <a class="dropdown-item" href="settings.html">Account Settings</a> *@ <a class="dropdown-item" asp-controller="Taikhoans" asp-action="Logout">Đăng xuất</a>
+						</div>
+					</li>
+				}
+
+			</ul>
+			@* <div class="top-nav-search">
+			<form>
+			<input type="text" class="form-control" placeholder="Search here">
+			<button class="btn" type="submit"><i class="fas fa-search"></i></button>
+			</form>
+			</div> *@
+		</div>
+
+
+		<div class="sidebar" id="sidebar">
+			<div class="sidebar-inner slimscroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li>
+							<a asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-tachometer-alt"></i> <span>Trang chủ</span></a>
+						</li>
+						<li class="list-divider"></li>
+						<li class="menu-title mt-3"> <span>DANH MỤC</span> </li>
+						<li class="submenu">
+							<a href="#">
+								<i class="fas fa-suitcase"></i> <span> Sản phẩm </span> <span class="menu-arrow"></span>
+							</a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a asp-area="" asp-controller="Dagranites" asp-action="Create"> Đá Granite </a></li>
+								<li><a asp-area="" asp-controller="Xuatxus" asp-action="Create"> Xuất xứ </a></li>
+								<li><a asp-area="" asp-controller="Loaidums" asp-action="Create"> Loại đá </a></li>
+								<li><a asp-area="" asp-controller="Ứng dụng" asp-action="Create"> Ứng dụng </a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#">
+								<i class="fas fa-user"></i> <span> Người dùng </span> <span class="menu-arrow"></span>
+							</a>
+							<ul class="submenu_class" style="display: none;">
+								@if (nv == null)
+								{
+									<li><a asp-area="" asp-controller="Taikhoans" asp-action="Create"> Tài khoản </a></li>
+									<li><a asp-area="" asp-controller="Nhanviens" asp-action="Create"> Nhân viên </a></li>
+								}
+								<li><a asp-area="" asp-controller="Khachhangs" asp-action="Create"> Khách hàng </a></li>
+								<li><a asp-area="" asp-controller="Nhacungcaps" asp-action="Create"> Nhà cung cấp </a></li>
+								<li><a asp-area="" asp-controller="Donvivanchuyens" asp-action="Create"> Đơn vị vận chuyển </a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#">
+								<i class="fa fa-archive"></i> <span> Đóng gói </span> <span class="menu-arrow"></span>
+							</a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a asp-area="" asp-controller="Loaithungs" asp-action="Create"> Quy cách đá </a></li>
+								<li><a asp-area="" asp-controller="Quycachdonggois" asp-action="Create"> Quy cách đóng gói </a></li>
+								@* <li><a asp-area="" asp-controller="Xes" asp-action="Create"> Xe </a></li> *@
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#">
+								<i class="fa fa-university"></i> <span> Thanh toán </span> <span class="menu-arrow"></span>
+							</a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a asp-area="" asp-controller="Nganhangs" asp-action="Create"> Ngân hàng </a></li>
+								<li><a asp-area="" asp-controller="Hinhthucthanhtoans" asp-action="Create"> Hình thức thanh toán </a></li>
+							</ul>
+						</li>
+						@* 						<li>
+						<a asp-area="" asp-controller="Xes" asp-action="Create"><i class="fa fa-truck"></i> <span> Xe </span></a>
+						</li> *@
+
+						<li class="list-divider"></li>
+						<li class="menu-title mt-3">
+							<span>QUẢN LÝ</span>
+						</li>
+						<li class="submenu">
+							<a href="#">
+								<i class="fa fa-cubes"></i> <span> Quản lý kho hàng </span> <span class="menu-arrow"></span>
+							</a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a asp-area="" asp-controller="Phieunhapkhoes" asp-action="Index"> Phiếu nhập kho </a></li>
+								<li><a asp-area="" asp-controller="Phieuxuatkhoes" asp-action="Index"> Phiếu xuất kho </a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#">
+								<i class="far fa-money-bill-alt"></i> <span> Quản lý thanh toán </span> <span class="menu-arrow"></span>
+							</a>
+							<ul class="submenu_class" style="display: none;">
+								<li><a asp-area="" asp-controller="Phieuthutiens" asp-action="Index"> Phiếu thu tiền </a></li>
+								<li><a asp-area="" asp-controller="Phieuthanhtoans" asp-action="Index"> Phiếu thanh toán </a></li>
+							</ul>
+						</li>
+						<li class="list-divider"></li>
+						<li class="menu-title mt-3">
+							<span>BÁO CÁO</span>
+						</li>
+						<li>
+							<a asp-controller="Loaithungs" asp-action="Baocaodoanhthu">
+								<i class="fas fa-chart-bar"></i> <span> Báo cáo doanh thu </span>
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Loaithungs" asp-action="Baocaotonkho">
+								<i class="fas fa-chart-line"></i> <span> Báo cáo hàng tồn </span>
+							</a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+		<style>
+			.content-invoice {
+				border: 1px solid #ddd !important;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				padding-top: -10px;
+				position: relative;
+				border-radius: 4px;
+				background-color: #fff;
+				padding-left: 10px !important;
+				padding-right: 10px;
+			}
+
+			.pagination {
+				padding-top: 12px;
+			}
+
+			.dataTables_length {
+				padding-bottom: 10px;
+			}
+
+		</style>
+
+
+		@RenderBody()
+
+	</div>
+
+	@if (TempData["AlertReturnMessage"] != null)
+	{
+
+		<script>
+			Swal.fire({
+				icon: 'success',
+				title: 'Khôi phục thành công',
+				text: '@TempData["AlertReturnMessage"] đã được khôi phục.',
+				showCloseButton: true,
+				confirmButtonText: 'Đóng',
+				confirmButtonClass: 'btn-success'
+			});
+		</script>
+
+	}
+
+	@if (TempData["EditSuccess"] != null)
+	{
+
+		<script>
+			Swal.fire({
+				icon: 'success',
+				title: 'Chỉnh sửa thành công',
+				text: '@TempData["EditSuccess"] cập nhật thành công.',
+				showCloseButton: true,
+				confirmButtonText: 'Đóng',
+				confirmButtonClass: 'btn-success'
+			});
+		</script>
+
+	}
+
+	@if (TempData["DeleteSuccess"] != null)
+	{
+
+		<script>
+			Swal.fire({
+				icon: 'success',
+				title: 'Xóa thành công',
+				text: ' @TempData["DeleteSuccess"] đã được xóa.',
+				showCloseButton: true,
+				confirmButtonText: 'Đóng',
+				confirmButtonClass: 'btn-success'
+			});
+		</script>
+
+	}
+
+	@if (TempData["CreateSuccess"] != null)
+	{
+
+		<script>
+			Swal.fire({
+				icon: 'success',
+				title: 'Thêm thành công',
+				text: '@TempData["CreateSuccess"] đã được thêm thành công.',
+				showCloseButton: true,
+				confirmButtonText: 'Đóng',
+				confirmButtonClass: 'btn-success'
+			});
+		</script>
+
+	}
+
+	@if (TempData["EditFail"] != null)
+	{
+
+		<script>
+			Swal.fire({
+				icon: 'error',
+				title: 'Chỉnh sửa thất bại',
+				text: '@TempData["EditFail"] cập nhật không thành công.',
+				showCloseButton: true,
+				confirmButtonText: 'Đóng',
+				confirmButtonClass: 'btn-danger'
+			});
+		</script>
+
+	}
+
+	@if (TempData["CreateFail"] != null)
+	{
+
+		<script>
+			Swal.fire({
+				icon: 'success',
+				title: 'Thêm thất bại',
+				text: '@TempData["CreateFail"] thêm không thành công.',
+				showCloseButton: true,
+				confirmButtonText: 'Đóng',
+				confirmButtonClass: 'btn-danger'
+			});
+		</script>
+
+	}
+
+	<script>
+
+		var object = { stat: false, ele: null };
+		function ConfirmReturn(ev) {
+
+			if (object.stat) { return true; };
+			swal({
+				title: "Bạn muốn khôi phục dữ liệu này?",
+				// text: "Dữ liệu sẽ mất khỏi bảng!",
+				type: "warning",
+				showCancelButton: true,
+				cancelButtonText: "Hủy",
+				cancelButtonClass: "btn-danger",
+				confirmButtonClass: "btn-success",
+				confirmButtonText: "Khôi phục",
+				closeOnConfirm: true
+			},
+				function () {
+					/*swal("Xóa!", "Đã xóa thành công.", "success");*/
+					object.stat = true;
+					object.ele = ev;
+					object.ele.click();
+				});
+			return false;
+		};
+	</script>
+
+	<script>
+
+		var object = { stat: false, ele: null };
+		function ConfirmDelete(ev) {
+
+			if (object.stat) { return true; };
+			swal({
+				title: "Bạn muốn xóa dữ liệu này?",
+				// text: "Dữ liệu sẽ mất khỏi bảng!",
+				type: "warning",
+				showCancelButton: true,
+				cancelButtonText: "Hủy",
+				cancelButtonClass: "btn-success",
+				confirmButtonClass: "btn-danger",
+				confirmButtonText: "Xóa",
+				closeOnConfirm: true
+			},
+				function () {
+					/*swal("Xóa!", "Đã xóa thành công.", "success");*/
+					object.stat = true;
+					object.ele = ev;
+					object.ele.click();
+				});
+			return false;
+		};
+	</script>
+
+	<script src="~/js/jquery-3.5.1.min.js"></script>
+
+	<script src="~/js/popper.min.js"></script>
+	<script src="~/js/bootstrap.min.js"></script>
+	<script src="~/js/moment.min.js"></script>
+	<script src="~/js/select2.min.js"></script>
+
+	<script src="~/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+	<script src="~/js/bootstrap-datetimepicker.min.js"></script>
+
+	<script src="~/plugins/datatables/datatables.min.js"></script>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/locale/vi.js"></script>
+	<script src="~/js/script.js"></script>
+
+    <script src="~/js/tooltip.min.js"></script>
+    <script src="~/js/virtual-select.min.js"></script>
+    <script src="~/js/selectsearch.js"></script>
+
+	<script src="~/js/phieunhap.js"></script>
+
+	<script>
+		VirtualSelect.init({
+			ele: '#sample-select',
+			search: true,
+			showSelectedOptionsFirst: true
+		});
+	</script>
+
+	<script>
+		VirtualSelect.init({
+			ele: '#sample-selectnosearch',
+			showSelectedOptionsFirst: true
+		});
+	</script>
+
+	<script>
+		VirtualSelect.init({
+			ele: '.sample-select',
+			search: true,
+			showSelectedOptionsFirst: true
+		});
+	</script>
+
+	<script>
+		VirtualSelect.init({
+			ele: '.sample-select-loc',
+			search: true,
+			showSelectedOptionsFirst: true
+		});
+
+
+
+	</script>
+
+	<script>
+		VirtualSelect.init({
+			ele: '#multi-select',
+			search: true,
+			multiple: true,
+			showSelectedOptionsFirst: true,
+			maxValues: 3
+		});
+
+	</script>
+
+	<script>
+		VirtualSelect.init({
+			ele: '#emulti-select',
+			search: true,
+			multiple: true,
+			showSelectedOptionsFirst: true,
+			maxValues: 3
+		});
+
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			$(".inputmask1").inputmask({
+				alias: "datetime",
+				inputFormat: "dd/mm/yyyy",
+			});
+		});
+	</script>
+
+	<script>
+		function formatInputDate() {
+			var dateInput = document.getElementsByClassName('Dateformat')[0];
+			var inputDate = moment(dateInput.value, 'DD/MM/YYYY');
+			var formattedDate = inputDate.format('MM/DD/YYYY');
+			dateInput.value = formattedDate;
+		}
+
+		document.getElementById('fmaster').addEventListener('submit', function () {
+			formatInputDate();
+		});
+	</script>
+
+	<script>
+		function formatInputDate1() {
+			var dateInput = document.getElementsByClassName('Dateformat')[0];
+			var inputDate = moment(dateInput.value, 'DD/MM/YYYY');
+			var formattedDate = inputDate.format('MM/DD/YYYY');
+			var dateInput1 = document.getElementsByClassName('Dateformat')[1];
+			var inputDate1 = moment(dateInput1.value, 'DD/MM/YYYY');
+			var formattedDate1 = inputDate1.format('MM/DD/YYYY');
+			dateInput.value = formattedDate;
+			dateInput1.value = formattedDate1;
+		}
+
+		document.getElementById('fmaster1').addEventListener('submit', function () {
+			formatInputDate1();
+		});
+	</script>
+
+	<script>
+		function formatInputDate2() {
+			var dateInput = document.getElementsByClassName('Dateformat1')[0];
+			var inputDate = moment(dateInput.value, 'DD/MM/YYYY');
+			var formattedDate = inputDate.format('MM/DD/YYYY');
+			var dateInput1 = document.getElementsByClassName('Dateformat1')[1];
+			var inputDate1 = moment(dateInput1.value, 'DD/MM/YYYY');
+			var formattedDate1 = inputDate1.format('MM/DD/YYYY');
+			dateInput.value = formattedDate;
+			dateInput1.value = formattedDate1;
+		}
+
+		document.getElementById('fmaster2').addEventListener('submit', function () {
+			formatInputDate2();
+		});
+	</script>
+
+	<script>
+		function validateDateFormat(input) {
+			var dateValue = input.value;
+
+			var formattedDate = dateValue.replace(/[^0-9/]/g, '');
+
+			var parts = formattedDate.split('/');
+			var day = parts[0];
+			var month = parts[1];
+			var year = parts[2];
+
+			if (day.length > 2) day = day.slice(0, 2);
+			if (month.length > 2) month = month.slice(0, 2);
+			if (year.length > 4) year = year.slice(0, 4);
+
+			input.value = day + '/' + month + '/' + year;
+		}
+	</script>
+
+	<script>
+		function isNumeric(event) {
+
+			// const inputValue = event.target.value;
+
+			if (window.getSelection().toString() === event.target.value) {
+				event.preventDefault();
+				return false;
+			}
+			else {
+				if (event.key >= '0' && event.key <= '9') {
+					return true; // Cho phép nhập số
+				} else if (event.key === '/') {
+					event.preventDefault();
+					return false;
+				} else {
+					event.preventDefault();
+					return false;
+				}
+			}
+		}
+
+	</script>
+
+	<script>
+		function validateVatInput(input) {
+			input.value = input.value.replace(/\D/g, '');
+
+			var inputValue = parseInt(input.value, 10);
+
+			if (isNaN(inputValue) || inputValue < 1 || inputValue > 15) {
+				input.value = '0';
+			}
+		}
+	</script>
+
+</body>
+
+</html>

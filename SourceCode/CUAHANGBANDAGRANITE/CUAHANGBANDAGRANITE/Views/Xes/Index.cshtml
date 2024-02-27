@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CUAHANGBANDAGRANITE.Models.Xe>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Maxe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tenxe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trongtai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sokhoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ghichu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maxe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tenxe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trongtai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sokhoi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ghichu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idxe">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idxe">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idxe">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
